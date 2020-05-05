@@ -23,7 +23,10 @@ Each team member is going to be responsible for the content of a different page,
 
 ### Teamwork
 
-Create a Project board for your site and make the columns for 'Backlog', 'Todo', 'In Progress', 'Code Review', 'done'. Create notes for different units of work, make the notes into issues, and assign it to the team members doing to work. When you are assigned to an issue, make sure that you are moving it over to the right column on the board.
+Create a Project board for your site and make the columns for 'Backlog', 'Todo', 'Doing', 'Code Review', 'Done'. Create notes for different units of work, make the notes into issues, and assign it to the team members doing to work. When you are assigned to an issue, make sure that you are moving it over to the right column on the board.
+
+### Planning
+Your team **MUST** use github projects to track tickets and progress on tickets.  We expect to see detailed wireframes for all different views in your project. These wireframes should be included in the appropriate ticket.
 
 ### Git
 Your team is going to learn how to use git to enable good teamwork when building a software product.
@@ -62,9 +65,6 @@ Now you have all of your work, plus all of your teammate's approved work on one 
 * EVERY SINGE PAGE must include a JS loop of some kind
 * Your team can only have 1 JS file - main.js
 * All your JS should be written in functions.  Wherever possible reuseable functions.
-
-### Planning
-Your team MUST use github projects to track tickets and progress on tickets.  We expect to see detailed wireframes for all different views in your project. These wireframes should be included in the appropriate ticket.
 
 **:warning:** DO NOT start coding until Luke has looked at your github project.
 
