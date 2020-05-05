@@ -23,7 +23,7 @@ Each team member is going to be responsible for the content of a different page,
 
 ### Teamwork
 
-Create a Project board for your site and make the columns for 'Backlog', 'Todo', 'In Progress', 'Code Review' (optional), 'done'. Create notes for different units of work, make the notes into issues, and assign it to the team members doing to work. When you are assigned to an issue, make sure that you are moving it over to the right column on the board.
+Create a Project board for your site and make the columns for 'Backlog', 'Todo', 'In Progress', 'Code Review', 'done'. Create notes for different units of work, make the notes into issues, and assign it to the team members doing to work. When you are assigned to an issue, make sure that you are moving it over to the right column on the board.
 
 ### Git
 Your team is going to learn how to use git to enable good teamwork when building a software product.
