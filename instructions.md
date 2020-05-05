@@ -8,12 +8,12 @@ As a team, build the web site for the pants type your team has been given. The t
 
 Pick a theme that the team likes. A good place for inspiration is the [Wordpress themes](https://wordpress.org/themes/) site. Do not purchase, or copy the theme code, just browse them for inspiration. Everyone should agree on a theme and ensure that each page is consistent with the colors, fonts, and/or images chosen.
 
-* Your team can only have 1 CSS file - main.css
+* Your team can only have 1 CSS and 1 JS file
 * Vanilla HTML, CSS, and JS only
 * Your team should be using bootstrap - at minimum use the grid system
 
 ### Pages
-Each team member is going to be responsible for the content of a different page, so decide on the name and content for each of those pages. Some possible options are...
+Each team member is going to be responsible for the content of a different page, so decide on the name and content for each of those pages. Some possible options are:
 
 1. Home page
 1. About the pants
