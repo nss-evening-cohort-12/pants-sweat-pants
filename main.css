@@ -104,3 +104,18 @@ header p {
   background-color: #8592AC;
   border: 1px solid #8592AC;
 }
+
+.customerContainer {
+  margin: 40px auto 0;
+  border: 1px solid black;
+  max-width: 800px;
+  padding:20px;
+}
+
+.customerContainer h2 {
+  color: #2B363E;
+}
+
+.customerContainer p {
+  color: #2B363E;
+}

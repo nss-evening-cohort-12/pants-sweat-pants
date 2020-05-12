@@ -40,6 +40,23 @@ const buildCategoryCards = (arr) => {
   printToDom('#categories', domString)
 }
 
+const buildEmailForm = () => {
+  let domString = '';
+    domString += `<form>
+                  <div class="form-row">
+                  <div class="col">
+                  <input type="text" class="form-control" placeholder="First name">
+                  </div>
+                  <div class="col">
+                  <input type="text" class="form-control" placeholder="Last name">
+                  </div>
+                  </div>
+                  </form>
+                `
+    }
+  printToDom('#categories', domString)
+}
+
 const init = () => {
 buildCategoryCards(categoryArr);
 }
