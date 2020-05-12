@@ -42,23 +42,47 @@ const buildCategoryCards = (arr) => {
 
 const buildEmailForm = () => {
   let domString = '';
-    domString += `<form>
+    domString += `<h2>Email Us</h2>
+                  <form>
                   <div class="form-row">
                   <div class="col">
-                  <input type="text" class="form-control" placeholder="First name">
+                  <label for="inputEmail" class="mb-0 mt-2">First Name</label>
+                  <input type="text" class="form-control" id="inputFirstName" placeholder="First name">
                   </div>
                   <div class="col">
-                  <input type="text" class="form-control" placeholder="Last name">
+                  <label for="inputLastName" class="mb-0 mt-2">Last Name</label>
+                  <input type="text" class="form-control" id="inputLastName" placeholder="Last name">
                   </div>
+                  </div>
+                  <div class="form-group">
+                  <label for="inputEmail" class="mb-0 mt-2">Email</label>
+                  <input type="email" class="form-control" id="inputEmail" placeholder="name@name.com">
+                  </div>
+                  <div class="form-group">
+                  <label for="selectSubject" class="mb-0 mt-0">Subject</label>
+                  <select class="form-control" id="selectSubject">
+                    <option>My Pants Dont Fit!</option>
+                    <option>Order Status</option>
+                    <option>Check Shipping Status</option>
+                    <option>Return Policy</option>
+                    <option>Coupon Code Doesn't Work</option>
+                  </select>
+                  </div>
+                  <div class="form-group">
+                  <label for="commentBox" class="mb-0 mt-0">Comments</label>
+                  <textarea class="form-control" id="commentBox" rows="3"></textarea>
+                  </div>
+                  <div class="text-right">
+                  <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
                   </form>
                 `
-    }
-  printToDom('#categories', domString)
+  printToDom('#emailUs', domString)
 }
 
 const init = () => {
-buildCategoryCards(categoryArr);
+// buildCategoryCards(categoryArr);
+buildEmailForm();
 }
 
 init();
