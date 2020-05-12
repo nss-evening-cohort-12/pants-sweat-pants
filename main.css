@@ -65,3 +65,38 @@ header p {
   font-weight: bold;
   font-style: italic;
 }
+
+.categoryH1 {
+  text-align: center;
+  color: #2B363E;
+  margin-bottom: 12px;
+}
+
+.categoryContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.categoryCard {
+  margin: 0px 10px;
+}
+
+.categoryCard h3 {
+  text-align: center;
+  color: #524D57;
+  margin: 6px 0px;
+}
+
+.categoryBody {
+  padding: 0px 20px 20px 20px;
+}
+
+.categoryP {
+  color: #8592AC;
+}
+
+.categoryButton {
+  background-color: #8592AC;
+  border: 1px solid #8592AC;
+}
