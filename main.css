@@ -16,6 +16,34 @@ header p {
   color: #B17B33;
 }
 
+#navLinks {
+  width: 100%;
+  list-style-type: none;
+  display:flex;
+  margin: 0px 0px 15px 15px;
+  padding: 0px;
+}
+
+#navLinks a{
+  color: #8592AC;
+  font-weight: bold;
+  margin-right: 20px;
+  font-size: 15px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#navLinks a:hover {
+  color: #B17B33;
+}
+
+.navbar-text {
+  padding: 0px 100px 0px 0px;
+  font-weight: bold;
+  justify-content: right;
+  color: #8592AC;
+}
+
 .jumbotron {
   padding: 0px;
   background-image: url("https://i.postimg.cc/28SVrhxV/jumbofinalfinal.jpg");
