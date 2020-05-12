@@ -163,3 +163,7 @@ footer li {
   margin-top: 15px;
   padding: 0px 11%;
 }
+
+#productCardContainer img {
+  object-fit: contain;
+}

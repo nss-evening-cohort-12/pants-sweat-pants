@@ -95,13 +95,15 @@ const buildProductCards = (sweatpants) => {
   let domString = '';
   for (let i = 0; i < sweatpants.length; i++) {
     domString += `
-        <div class="Card mt-4 col-4 mx-4" id="sweatsCard">
-          <img src="${sweatpants[i].img}" class="card-img-top" alt="Sweats">
-          <div class="card-body">
+        <div class="Card mx-4 mt-4 rounded" id="sweatsCard">
+          <img src="${sweatpants[i].img}" class="card-img-top p-3" alt="Sweats">
+          <div class="card-body pb-0">
             <h5 class="card-title">${sweatpants[i].name}</h5>
             <p class="card-text">${sweatpants[i].description}</p>
-            <p class="card-text"><small class="text-muted">${sweatpants[i].price}</small></p>
-            <button type="button" class="btn btn-primary">BUY</button>
+            <div class="card-footer row">
+              <p class="card-text text-center mb-0 p-0 col-6"><small class="text">$${sweatpants[i].price}</small></p>
+              <button type="button" class="btn btn-primary col-6">BUY</button>
+            </div>
           </div>
         </div>
     `
@@ -110,8 +112,16 @@ const buildProductCards = (sweatpants) => {
 }
 
 const init = () => {
-buildProductCards(sweatpants);
-buildCategoryCards(categoryArr);
+  if (document.body.id === "shop"){
+    buildProductCards(sweatpants);
+  } else if (document.body.id === "about") {
+
+  } else if (document.body.id === "homepage") {
+    buildCategoryCards(categoryArr);
+  } else if (document.body.id === "reviews"){
+
+  };
 }
+
 
 init();
