@@ -104,3 +104,19 @@ header p {
   background-color: #8592AC;
   border: 1px solid #8592AC;
 }
+
+#productCardContainer {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  /* border: 1px solid black; */
+}
+
+#sweatsCard img {
+  max-height: 300px;
+  max-width: 300px;
+}
+#sweatsCard {
+  max-width: 300px;
+  border: 2px solid #2b363e;
+}
