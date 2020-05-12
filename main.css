@@ -105,7 +105,7 @@ header p {
   border: 1px solid #8592AC;
 }
 
-<<<<<<< HEAD
+
 #productCardContainer {
   display: flex;
   flex-flow: row wrap;
@@ -121,7 +121,7 @@ header p {
   max-width: 300px;
   border: 2px solid #2b363e;
 }
-=======
+
 footer {
   border-top: 1px solid rgba(133, 146, 172, 0.406);
   margin-top: 32px;
@@ -163,4 +163,3 @@ footer li {
   margin-top: 15px;
   padding: 0px 11%;
 }
->>>>>>> master
