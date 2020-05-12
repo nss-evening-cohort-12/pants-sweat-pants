@@ -104,3 +104,45 @@ header p {
   background-color: #8592AC;
   border: 1px solid #8592AC;
 }
+
+footer {
+  border-top: 1px solid rgba(133, 146, 172, 0.406);
+  margin-top: 32px;
+}
+
+ul {
+  text-align: center;
+  list-style: inside;
+}
+
+footer li {
+  list-style: none;
+}
+
+.social-icon {
+  height: 1em;
+}
+
+#footerLinks a{
+  color: #8592AC;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#footerLinks a:hover {
+  color: #B17B33;
+}
+
+.nav-col {
+  width: 414px;
+  margin: 10px;
+}
+
+.nav-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  padding: 0px 11%;
+}
