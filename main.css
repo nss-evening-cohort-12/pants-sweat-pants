@@ -1,0 +1,39 @@
+body {
+  font-family: 'Jost', sans-serif;
+  overflow-x: hidden;
+  background-color: #C9CADC;
+}
+
+header h1 {
+  padding: 15px 0px 0px 15px;
+  color: #2B363E;
+  margin-bottom: 0px;
+}
+
+header p {
+  margin-top: 0px;
+  margin-left: 15px;
+  color: #B17B33;
+}
+
+.jumbotron {
+  padding: 0px;
+  background-image: url("https://i.postimg.cc/28SVrhxV/jumbofinalfinal.jpg");
+  background-size: cover;
+  height: 480px;
+}
+
+.container {
+  text-align: center;
+  margin: 0px auto;
+  color: white;
+}
+
+.display-4 {
+  padding-top: 15px;
+}
+
+.jumbotron p {
+  font-weight: bold;
+  font-style: italic;
+}
