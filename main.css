@@ -46,9 +46,10 @@ header p {
 
 .jumbotron {
   padding: 0px;
-  background-image: url("https://i.postimg.cc/28SVrhxV/jumbofinalfinal.jpg");
+  background-image: url("images/jumbotronimage.jpg");
+  background-position: center;
   background-size: cover;
-  height: 480px;
+  height: 580px;
 }
 
 .container {
