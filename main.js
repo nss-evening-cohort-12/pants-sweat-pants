@@ -67,6 +67,22 @@ const sweatpants = [
   }
 ]
 
+const aboutFrames = [
+   {
+    frameImg: "images/about_storyboard1.png",
+    frameText: "In 1927, pen was put to paper for the first time to create a vision of the original Sweaty's outfit. Times have changed but our abundance of creativy hasn't."
+}, {
+    frameImg: "images/about_storyboard2.png",
+    frameText: "Before computers took away 75% of our employees' jobs, our original factory housed hundred's of hard workers, sweating so our customers could sweat in style."
+}, {
+    frameImg: "images/about_storyboard3.png",
+    frameText: "No one can deny the impact we've had on popular culture. Celebrities choose Sweaty's, and not only because we pay them to."
+}, {
+    frameImg: "images/about_storyboard4.png",
+    frameText: "Sweaty's proudly donates 5% of our profits every leap year to local charities and organizations that help those less fortunate than our CEO's."
+}
+]
+
 const printToDom = (selector, textToPrint) => {
   const selectedDiv = document.querySelector(selector);
   selectedDiv.innerHTML = textToPrint;
@@ -167,12 +183,28 @@ const clickEvents = () => {
   }
 }
 
+const buildAboutFrames = () => {
+  let domString = '';
+  for (let i = 0; i < aboutFrames.length; i++) {
+    domString += `<div class="about-frame">
+      <img src="${aboutFrames[i].frameImg}" alt="">`;
+    if ( i % 2 == 0) {
+      domString += '<div class="about-textblock-right">';
+    } else {
+      domString += '<div class="about-textblock-left">';
+    }
+    domString += `<p>${aboutFrames[i].frameText}</p>
+      </div>
+    </div>`
+  }
+  printToDom('#aboutStoryboard', domString);
+}
 
 const init = () => {
   if (document.body.id === "shop"){
     buildProductCards(sweatpants);
   } else if (document.body.id === "about") {
-
+    buildAboutFrames();
   } else if (document.body.id === "homepage") {
     buildCategoryCards(categoryArr);
   } else if (document.body.id === "reviews"){
@@ -181,8 +213,7 @@ const init = () => {
     
   };
 
-clickEvents();
-
+  clickEvents();
 }
 
 init();
