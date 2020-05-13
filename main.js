@@ -31,7 +31,7 @@ const sweatpants = [
     gender: "Female",
     price: 30, 
     img: "https://cdn.shopify.com/s/files/1/0951/7126/products/W_Boerum_Jogger_Heather_Grey_1200x.jpg?v=1563225764",
-    description: "Sleek athletic fit jogger sweatpants with patented Sweaty's sweat absorbtion technology built right in!"
+    description: "Sleek athletic fit jogger sweatpants with patented Sweaty's sweat absorbtion technology built right in! You'll never have to shower again!"
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ const sweatpants = [
     gender: "Kids",
     price: 10, 
     img: "https://images-na.ssl-images-amazon.com/images/I/81Qoecp1H-L._AC_UX466_.jpg",
-    description: "A simple pair of child size sweatpants. Good enough for any kid's rough and tumble life style."
+    description: "A simple pair of child size sweatpants. Good enough for any kid's rough and tumble lifestyle. Available for a limited time only!"
   },
   {
     id: 3,
@@ -47,7 +47,7 @@ const sweatpants = [
     gender: "Male",
     price: 20, 
     img: "https://cdn2.bigcommerce.com/server3100/1a4f5/products/46/images/585/0700M__new_gray_heather__78305.1478918250.1280.1280.jpg?c=2",
-    description: "The looser the better, that's what we always say! With these non-elastic swishy sweats, we here at Sweaty's guarantee you'll be free to do any sort of wild and crazy motion you so desire!"
+    description: "The looser the better, that's what we always say! With these non-elastic swishy sweats, you'll have a full range of motion no matter the commotion!"
   },
   {
     id: 4,
@@ -63,7 +63,7 @@ const sweatpants = [
     gender: "Kids",
     price: 15, 
     img: "https://cdn.shoplightspeed.com/shops/613188/files/9352569/600x600x1/chaser-kids-chaser-kids-girls-love-cozy-sweatpants.jpg",
-    description: "Perfect for inside or outside play time, these sweats are guaranteed to keep your child moving to his or her's hearts content!"
+    description: "These Sweaty's sweats are perfect for inside or outside play time, these sweats will keep your child moving to his or her heart's content!"
   }
 ]
 
@@ -91,17 +91,17 @@ const buildCategoryCards = (arr) => {
   printToDom('#categories', domString)
 }
 
-const buildProductCards = (sweatpants) => {
+const buildProductCards = (sweatsArr) => {
   let domString = '';
-  for (let i = 0; i < sweatpants.length; i++) {
+  for (let i = 0; i < sweatsArr.length; i++) {
     domString += `
         <div class="Card mx-4 mt-4 rounded" id="sweatsCard">
-          <img src="${sweatpants[i].img}" class="card-img-top p-3" alt="Sweats">
-          <div class="card-body pb-0">
-            <h5 class="card-title">${sweatpants[i].name}</h5>
-            <p class="card-text">${sweatpants[i].description}</p>
+          <img src="${sweatsArr[i].img}" class="card-img-top p-3" alt="Sweats">
+          <div class="sweatCardBody card-body pb-0">
+            <h5 class="card-title">${sweatsArr[i].name}</h5>
+            <p class="card-text">${sweatsArr[i].description}</p>
             <div class="card-footer row">
-              <p class="card-text text-center mb-0 p-0 col-6"><small class="text">$${sweatpants[i].price}</small></p>
+              <p class="card-text text-center mb-0 p-0 col-6"><small class="text">$${sweatsArr[i].price}</small></p>
               <button type="button" class="btn btn-primary col-6">BUY</button>
             </div>
           </div>
@@ -134,6 +134,34 @@ const buildEmailResponse = (arr) => {
   printToDom('#email', domString);
 }
 
+const filterSweats = (event) => {
+  let buttonId = event.target.id;
+  const tempSweatsArr = [];
+
+  if (buttonId === 'All'){
+    buildProductCards(sweatpants);
+    return;
+  };
+
+  for (let i = 0; i < sweatpants.length; i++){
+    if (sweatpants[i].gender === buttonId){
+      tempSweatsArr.push(sweatpants[i])
+    } 
+  };
+  
+  buildProductCards(tempSweatsArr);
+}
+
+const clickEvents = () => {
+  if (document.body.id === 'shop') {
+    document.querySelector('#Male').addEventListener('click', filterSweats);
+    document.querySelector('#Female').addEventListener('click', filterSweats);
+    document.querySelector('#Kids').addEventListener('click', filterSweats);
+    document.querySelector('#All').addEventListener('click', filterSweats);
+  }
+}
+
+
 const init = () => {
   if (document.body.id === "shop"){
     buildProductCards(sweatpants);
@@ -147,7 +175,9 @@ const init = () => {
     console.log(emailArr);
     document.querySelector('#emailSubmit').addEventListener('click', buildClient);
   };
-  
+
+clickEvents();
+
 }
 
 init();
