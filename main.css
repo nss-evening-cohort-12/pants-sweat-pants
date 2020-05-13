@@ -119,7 +119,7 @@ header p {
 }
 
 .sweatCardBody {
-  color: #2B363E 
+  color: #2B363E; 
 }
 
 #sweatsCard img {
@@ -174,11 +174,6 @@ footer li {
   padding: 0px 11%;
 }
 
-#reviewSlides{
-  width:640px;
-  height:360px;
-}
-
 #about-header-text {
   position: relative;
   margin-left: auto;
@@ -187,4 +182,12 @@ footer li {
   background-color: white;
   padding: 25px;
   width: 80%;
+}
+
+.carousel-caption{
+  position: absolute;
+  font-size: 45pt;
+  color: #B17B33;
+  font-style: italic;
+  top: 42.5%;
 }
