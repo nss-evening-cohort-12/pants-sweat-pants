@@ -23,7 +23,8 @@ const sweatpants = [
     gender: "Male",
     price: 100, 
     img: "https://contestimg.wish.com/api/webimage/5ba44688236cce377bb52685-large.jpg?cache_buster=978868a7abef943d5963ca125b8b4c78",
-    description: "These are the face of the one true actor Sir Nicholas Cage. He himself wears these daily. He's one of our biggest Customers!"
+    description: "These are the face of the one true actor Sir Nicholas Cage. He himself wears these daily. He's one of our biggest Customers!",
+    size: ['S', 'M', 'L']
   },
   {
     id: 1,
@@ -31,7 +32,8 @@ const sweatpants = [
     gender: "Female",
     price: 30, 
     img: "https://cdn.shopify.com/s/files/1/0951/7126/products/W_Boerum_Jogger_Heather_Grey_1200x.jpg?v=1563225764",
-    description: "Sleek athletic fit jogger sweatpants with patented Sweaty's sweat absorbtion technology built right in! You'll never have to shower again!"
+    description: "Sleek athletic fit jogger sweatpants with patented Sweaty's sweat absorbtion technology built right in! You'll never have to shower again!",
+    size: ['S', 'M']
   },
   {
     id: 2,
@@ -39,7 +41,8 @@ const sweatpants = [
     gender: "Kids",
     price: 10, 
     img: "https://images-na.ssl-images-amazon.com/images/I/81Qoecp1H-L._AC_UX466_.jpg",
-    description: "A simple pair of child size sweatpants. Good enough for any kid's rough and tumble lifestyle. Available for a limited time only!"
+    description: "A simple pair of child size sweatpants. Good enough for any kid's rough and tumble lifestyle. Available for a limited time only!",
+    size: 'S'
   },
   {
     id: 3,
@@ -47,7 +50,8 @@ const sweatpants = [
     gender: "Male",
     price: 20, 
     img: "https://cdn2.bigcommerce.com/server3100/1a4f5/products/46/images/585/0700M__new_gray_heather__78305.1478918250.1280.1280.jpg?c=2",
-    description: "The looser the better, that's what we always say! With these non-elastic swishy sweats, you'll have a full range of motion no matter the commotion!"
+    description: "The looser the better, that's what we always say! With these non-elastic swishy sweats, you'll have a full range of motion no matter the commotion!",
+    size: ['S', 'M', 'L']
   },
   {
     id: 4,
@@ -55,7 +59,8 @@ const sweatpants = [
     gender: "Female",
     price: 25, 
     img: "https://images-na.ssl-images-amazon.com/images/I/61%2BQKzcZiEL._AC_UX342_.jpg",
-    description: "Tie 'em up! These sweats offer an enhanced Sweaty's drawstring technology previously unknown to human kind. Simply tie, and forget!"
+    description: "Tie 'em up! These sweats offer an enhanced Sweaty's drawstring technology previously unknown to human kind. Simply tie, and forget!",
+    size: ['S', 'M', 'L']
   },
   {
     id: 5,
@@ -63,7 +68,8 @@ const sweatpants = [
     gender: "Kids",
     price: 15, 
     img: "https://cdn.shoplightspeed.com/shops/613188/files/9352569/600x600x1/chaser-kids-chaser-kids-girls-love-cozy-sweatpants.jpg",
-    description: "These Sweaty's sweats are perfect for inside or outside play time, these sweats will keep your child moving to his or her heart's content!"
+    description: "These Sweaty's sweats are perfect for inside or outside play time, these sweats will keep your child moving to his or her heart's content!",
+    size: 'S'
   }
 ]
 
@@ -96,26 +102,47 @@ const buildProductCards = (sweatsArr) => {
   for (let i = 0; i < sweatsArr.length; i++) {
     domString += `
         <div class="Card mx-4 mt-4 rounded" id="sweatsCard">
-          <img src="${sweatsArr[i].img}" class="card-img-top p-3" alt="Sweats">
-          <div class="btn-group">
-            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
-          <div class="sweatCardBody card-body pb-0">
-            <h5 class="card-title">${sweatsArr[i].name}</h5>
-            <p class="card-text">${sweatsArr[i].description}</p>
-            <div class="card-footer row">
-              <p class="card-text text-center mb-0 p-0 col-6"><small class="text">$${sweatsArr[i].price}</small></p>
-              <button type="button" class="btn btn-primary col-6">BUY</button>
-            </div>
-          </div>
-        </div>
-    `
+          <img src="${sweatsArr[i].img}" class="card-img-top p-3" alt="Sweats">`
+
+          if (sweatsArr[i].size === 'S'){
+            domString += `<div class="btn-group">
+                              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">S</a>
+                            </div>
+                          </div> `
+          } else if (sweatsArr[i].size.includes('S','M')){
+            domString += `
+                          <div class="btn-group">
+                              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">S</a>
+                              <a class="dropdown-item" href="#">M</a>
+                            </div>
+                          </div>`
+          } else if (sweatsArr[i].size.includes('S','M','L')){
+            domString += `
+                          <div class="btn-group">
+                              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">S</a>
+                              <a class="dropdown-item" href="#">M</a>
+                              <a class="dropdown-item" href="#">L</a>
+                            </div>
+                          </div>`
+          }
+          domString += `
+                        <div class="sweatCardBody card-body pb-0">
+                          <h5 class="card-title">${sweatsArr[i].name}</h5>
+                          <p class="card-text">${sweatsArr[i].description}</p>
+                          <div class="card-footer row">
+                            <p class="card-text text-center mb-0 p-0 col-6"><small class="text">$${sweatsArr[i].price}</small></p>
+                            <button type="button" class="btn btn-primary col-6">BUY</button>
+                          </div>
+                        </div>
+                      </div>`
   }
+            
   printToDom('#productCardContainer', domString)
 }
 
@@ -138,7 +165,7 @@ const filterSweats = (event) => {
 }
 
 const clickEvents = () => {
-  if (document.body.id === 'shop') {
+  if (document.body.id === 'shop' || document.body.id === 'homepage') {
     document.querySelector('#Male').addEventListener('click', filterSweats);
     document.querySelector('#Female').addEventListener('click', filterSweats);
     document.querySelector('#Kids').addEventListener('click', filterSweats);
