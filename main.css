@@ -114,6 +114,14 @@ header p {
   /* border: 1px solid black; */
 }
 
+#productCardContainer img {
+  object-fit: contain;
+}
+
+.sweatCardBody {
+  color: #2B363E 
+}
+
 #sweatsCard img {
   max-height: 300px;
   max-width: 300px;
@@ -165,10 +173,6 @@ footer li {
   padding: 0px 11%;
 }
 
-#productCardContainer img {
-  object-fit: contain;
-
-}
 #about-header-text {
   position: relative;
   margin-left: auto;
