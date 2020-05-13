@@ -97,6 +97,14 @@ const buildProductCards = (sweatsArr) => {
     domString += `
         <div class="Card mx-4 mt-4 rounded" id="sweatsCard">
           <img src="${sweatsArr[i].img}" class="card-img-top p-3" alt="Sweats">
+          <div class="btn-group">
+            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
           <div class="sweatCardBody card-body pb-0">
             <h5 class="card-title">${sweatsArr[i].name}</h5>
             <p class="card-text">${sweatsArr[i].description}</p>
