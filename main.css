@@ -8,6 +8,15 @@ header h1 {
   padding: 15px 0px 0px 15px;
   color: #2B363E;
   margin-bottom: 0px;
+  display: inline-block;
+}
+
+header a:link, a:visited, a:active {
+  text-decoration: none;
+}
+
+header h1:hover {
+  color: #4c5e6c;
 }
 
 header p {
@@ -194,9 +203,6 @@ footer li {
   background-color: white;
   padding: 25px;
   width: 80%;
-}
-
-#aboutStoryboard {
 }
 
 .about-frame {
