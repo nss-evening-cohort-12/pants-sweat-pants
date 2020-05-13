@@ -184,7 +184,6 @@ const clickEvents = () => {
 }
 
 const buildAboutFrames = () => {
-  console.log('running buildAboutFrames');
   let domString = '';
   for (let i = 0; i < aboutFrames.length; i++) {
     domString += `<div class="about-frame">
