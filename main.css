@@ -141,7 +141,7 @@ header p {
 }
 
 .sweatCardBody {
-  color: #2B363E 
+  color: #2B363E; 
 }
 
 #sweatsCard img {
@@ -181,6 +181,7 @@ footer li {
 
 #footerLinks a:hover {
   color: #B17B33;
+  
 }
 
 .nav-col {
@@ -203,6 +204,23 @@ footer li {
   background-color: white;
   padding: 25px;
   width: 80%;
+}
+
+.carousel-caption{
+  position: absolute;
+  color: #B17B33;
+  font-style: italic;
+  top: 40%;
+}
+
+#reviewsCarousel{
+  max-height: auto;
+  max-width: 95%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#aboutStoryboard {
 }
 
 .about-frame {
