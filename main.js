@@ -91,46 +91,6 @@ const buildCategoryCards = (arr) => {
   printToDom('#categories', domString)
 }
 
-const buildEmailForm = () => {
-  let domString = '';
-    domString += `<h2>Email Us</h2>
-                  <form>
-                  <div class="form-row">
-                  <div class="col">
-                  <label for="inputEmail" class="mb-0 mt-2">First Name</label>
-                  <input type="text" class="form-control" id="inputFirstName" placeholder="First name">
-                  </div>
-                  <div class="col">
-                  <label for="inputLastName" class="mb-0 mt-2">Last Name</label>
-                  <input type="text" class="form-control" id="inputLastName" placeholder="Last name">
-                  </div>
-                  </div>
-                  <div class="form-group">
-                  <label for="inputEmail" class="mb-0 mt-2">Email</label>
-                  <input type="email" class="form-control" id="inputEmail" placeholder="name@name.com">
-                  </div>
-                  <div class="form-group">
-                  <label for="selectSubject" class="mb-0 mt-0">Subject</label>
-                  <select class="form-control" id="selectSubject">
-                    <option>My Pants Dont Fit!</option>
-                    <option>Order Status</option>
-                    <option>Check Shipping Status</option>
-                    <option>Return Policy</option>
-                    <option>Coupon Code Doesn't Work</option>
-                  </select>
-                  </div>
-                  <div class="form-group">
-                  <label for="commentBox" class="mb-0 mt-0">Comments</label>
-                  <textarea class="form-control" id="commentBox" rows="3"></textarea>
-                  </div>
-                  <div class="text-right">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                  </div>
-                  </form>
-                `
-  printToDom('#emailUs', domString)
-}
-
 const buildProductCards = (sweatpants) => {
   let domString = '';
   for (let i = 0; i < sweatpants.length; i++) {
@@ -150,6 +110,29 @@ const buildProductCards = (sweatpants) => {
   }
   printToDom('#productCardContainer', domString)
 }
+let emailArr = [];
+
+const buildClient = () => {
+  let client = {};
+  client.firstName = document.querySelector('#inputFirstName').value;
+  client.lastName = document.querySelector('#inputLastName').value;
+  emailArr.push(client);
+  buildEmailResponse(emailArr);
+}
+
+const buildEmailResponse = (arr) => {
+  let domString = '';
+
+  for(let i = 0; i < emailArr.length; i++) {
+    domString += `<div class="emailResponse">
+                  <h2>Thank You!</h2>
+                  <p>${arr[i].firstName} ${arr[i].lastName},</p>
+                  <p>Thank you for reaching out to our Customer Service Department. We value all of our Sweaty customers, and will respond to your question as soon as possible. Have a great day.</p>
+                  </div>
+                `
+    }
+  printToDom('#email', domString);
+}
 
 const init = () => {
   if (document.body.id === "shop"){
@@ -160,7 +143,11 @@ const init = () => {
     buildCategoryCards(categoryArr);
   } else if (document.body.id === "reviews"){
 
+  } else if (document.body.id === "customerservice"){
+    console.log(emailArr);
+    document.querySelector('#emailSubmit').addEventListener('click', buildClient);
   };
+  
 }
 
 init();

@@ -20,7 +20,7 @@
     </ul>
   </nav>
 </header>
-<body>
+<body id="customerservice">
 <div class="customerContainer">
   <div id="shipping">
     <h2>Shipping</h2>
@@ -30,23 +30,80 @@
     <h2>Returns</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum tempus lacus, at molestie ex tincidunt ut. Morbi maximus nulla eget egestas convallis. Maecenas odio magna, sodales sed erat et, viverra iaculis justo. Quisque accumsan venenatis mauris efficitur ultricies. Mauris lectus nibh, accumsan vel lobortis sit amet, elementum quis libero. Nam a condimentum massa. Suspendisse finibus pellentesque ipsum. Proin vestibulum arcu id velit hendrerit sagittis. Quisque ut vehicula sapien. </p>
   </div>
-  <div id="priceGuarantee">
+  <div id="priceguarantee">
     <h2>Price Guarantee</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum tempus lacus, at molestie ex tincidunt ut. Morbi maximus nulla eget egestas convallis. Maecenas odio magna, sodales sed erat et, viverra iaculis justo. Quisque accumsan venenatis mauris efficitur ultricies. Mauris lectus nibh, accumsan vel lobortis sit amet, elementum quis libero. Nam a condimentum massa. Suspendisse finibus pellentesque ipsum. Proin vestibulum arcu id velit hendrerit sagittis. Quisque ut vehicula sapien. </p>
   </div>
-  <div id="callUs">
+  <div id="phone"">
     <h2>Call Us</h2>
     <p>Our customer service department can be reached at 1-555-555-5555, Monday-Saturday 8AM to 9PM CST</p>
   </div>
-  <div id="emailUs">
+  <div id="email">
     <h2>Email Us</h2>
-    <p>----Contact Form-----</p>
+    <form>
+      <div class="form-row">
+      <div class="col">
+      <label for="inputEmail" class="mb-0 mt-2">First Name</label>
+      <input type="text" class="form-control" id="inputFirstName" placeholder="First name">
+    </div>
+    <div class="col">
+      <label for="inputLastName" class="mb-0 mt-2">Last Name</label>
+      <input type="text" class="form-control" id="inputLastName" placeholder="Last name">
+    </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail" class="mb-0 mt-2">Email</label>
+      <input type="email" class="form-control" id="inputEmail" placeholder="name@name.com">
+    </div>
+    <div class="form-group">
+      <label for="selectSubject" class="mb-0 mt-0">Subject</label>
+      <select class="form-control" id="selectSubject">
+        <option>My Pants Dont Fit!</option>
+        <option>Order Status</option>
+        <option>Check Shipping Status</option>
+        <option>Return Policy</option>
+        <option>Coupon Code Doesn't Work</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="commentBox" class="mb-0 mt-0">Comments</label>
+      <textarea class="form-control" id="commentBox" rows="3"></textarea>
+    </div>
+    <div class="text-right">
+      <button type="submit" class="btn btn-primary" id="emailSubmit">Submit</button>
+    </div>
+    </form>
   </div>
   <div id="locations">
     <h2>Locations</h2>
     <p>Our locations are all currently closed until further notice due to COVID19. We invite you to use our website to order.</p>
   </div>
 </div>
+<footer>
+  <div class="nav-row" id="footerLinks">
+    <div class="nav-col">
+        <ul>
+            <li><a href="customerservice.html#shipping">Shipping</a></li>
+            <li><a href="customerservice.html#returns">Return & Exchanges</a></li>
+            <li><a href="customerservice.html#priceguarantee">Price Guarantee</a></li>
+        </ul>
+    </div>
+    <div class="nav-col">
+        <ul>
+            <li><a href="customerservice.html#phone">Call Us</a></li>
+            <li><a href="customerservice.html#email">Email Us</a></li>
+            <li><a href="customerservice.html#locations">Store Locations</a></li>
+        </ul>
+    </div>
+    <div class="nav-col">
+        <ul>
+            <li><img src="images/instagram.png" alt="instagram icon" class="social-icon"> <a href="https://www.instagram.com/explore/tags/sweatpants/" target="_blank">Instagram</a></li>
+            <li><img src="images/facebook.png" alt="facebook icon" class="social-icon"> <a href="https://www.facebook.com/Sweatpants-34428293970/" target="_blank">Facebook</a></li>
+            <li><img src="images/pinterest.png" alt="pinterest icon" class="social-icon"> <a href="https://www.pinterest.com/search/pins/?q=sweatpants" target="_blank">Pinterest</a></li>
+        </ul>
+    </div>
+  </div>
+</footer>
 <script src="main.js"></script>
 </body>
 </html>
