@@ -13,14 +13,14 @@
   <p>The Best Sweatpants of All Time</p>
   <nav>
     <ul id="navLinks">
-      <li><a href="shop.html" id="navToShop">Shop</a></li>
+      <li><a href="Shop.html" id="navToShop">Shop</a></li>
       <li><a href="about.html" id="navToAbout">About</a></li>
       <li><a href="reviews.html" id="navToReviews">Reviews</a></li>
       <span class="navbar-text navbar-nav ml-auto" id="totalCostContainer">$0.00</span>
     </ul>
   </nav>
 </header>
-<body>
+<body id="shop">
 <div id="shopPage" class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">Shop</h1>
@@ -28,15 +28,45 @@
   </div>
 </div>
 
-<div class="container justify-content-start">
+<div class="container">
   <div class="row justify-content-center">
-    <button type="button" class="btn btn-secondary px-4 mr-4">Men's</button>
-    <button type="button" class="btn btn-secondary px-4 mr-4">Women's</button>
-    <button type="button" class="btn btn-secondary px-4">Kid's</button>
+    <button type="button" id="All" class="btn btn-secondary px-4 mr-4">All</button>
+    <button type="button" id="Male" class="btn btn-secondary px-4 mr-4">Men's</button>
+    <button type="but ton" id="Female" class="btn btn-secondary px-4 mr-4">Women's</button>
+    <button type="button" id="Kids" class="btn btn-secondary px-4">Kid's</button>
   </div>
 </div>
 
-<div id="productCards" class="container"></div>
+<div id="productCardContainer" class="container card-deck justify-content-center"></div>
+
+<footer>
+  <div class="nav-row" id="footerLinks">
+    <!-- <div class="col-1"></div> -->
+    <div class="nav-col">
+        <ul>
+            <li><a href="customerservice.html#shipping">Shipping</a></li>
+            <li><a href="customerservice.html#returns">Return & Exchanges</a></li>
+            <li><a href="customerservice.html#priceguarantee">Price Guarantee</a></li>
+        </ul>
+    </div>
+    <div class="nav-col">
+        <ul>
+            <li><a href="customerservice.html#phone">Call Us</a></li>
+            <li><a href="customerservice.html#email">Email Us</a></li>
+            <li><a href="customerservice.html#locations">Store Locations</a></li>
+        </ul>
+    </div>
+    <div class="nav-col">
+        <ul>
+            <li><img src="images/instagram.png" alt="instagram icon" class="social-icon"> <a href="https://www.instagram.com/explore/tags/sweatpants/" target="_blank">Instagram</a></li>
+            <li><img src="images/facebook.png" alt="facebook icon" class="social-icon"> <a href="https://www.facebook.com/Sweatpants-34428293970/" target="_blank">Facebook</a></li>
+            <li><img src="images/pinterest.png" alt="pinterest icon" class="social-icon"> <a href="https://www.pinterest.com/search/pins/?q=sweatpants" target="_blank">Pinterest</a></li>
+        </ul>
+    </div>
+    <!-- <div class="col-1"></div> -->
+  </div>
+</footer>
+
 
 <script src="main.js"></script>
 </body>

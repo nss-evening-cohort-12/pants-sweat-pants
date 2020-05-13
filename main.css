@@ -46,9 +46,10 @@ header p {
 
 .jumbotron {
   padding: 0px;
-  background-image: url("https://i.postimg.cc/28SVrhxV/jumbofinalfinal.jpg");
+  background-image: url("images/jumbotronimage.jpg");
+  background-position: center;
   background-size: cover;
-  height: 480px;
+  height: 580px;
 }
 
 .container {
@@ -105,6 +106,31 @@ header p {
   border: 1px solid #8592AC;
 }
 
+
+#productCardContainer {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  /* border: 1px solid black; */
+}
+
+#productCardContainer img {
+  object-fit: contain;
+}
+
+.sweatCardBody {
+  color: #2B363E 
+}
+
+#sweatsCard img {
+  max-height: 300px;
+  max-width: 300px;
+}
+#sweatsCard {
+  max-width: 300px;
+  border: 2px solid #2b363e;
+}
+
 footer {
   border-top: 1px solid rgba(133, 146, 172, 0.406);
   margin-top: 32px;
@@ -147,7 +173,18 @@ footer li {
   margin-top: 15px;
   padding: 0px 11%;
 }
+
 #reviewSlides{
   width:640px;
   height:360px;
+}
+
+#about-header-text {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  top: -30px;
+  background-color: white;
+  padding: 25px;
+  width: 80%;
 }
