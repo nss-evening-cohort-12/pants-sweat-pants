@@ -198,6 +198,23 @@ const buildProductCards = (sweatsArr) => {
   
 }
 
+const buildAboutFrames = () => {
+  let domString = '';
+  for (let i = 0; i < aboutFrames.length; i++) {
+    domString += `<div class="about-frame">
+      <img src="${aboutFrames[i].frameImg}" alt="">`;
+    if ( i % 2 == 0) {
+      domString += '<div class="about-textblock-right">';
+    } else {
+      domString += '<div class="about-textblock-left">';
+    }
+    domString += `<p>${aboutFrames[i].frameText}</p>
+      </div>
+    </div>`
+  }
+  printToDom('#aboutStoryboard', domString);
+}
+
 
 let emailArr = [];
 
