@@ -98,7 +98,7 @@ const buildCategoryCards = (arr) => {
                             <div class="card-body categoryBody">
                             <p class="card-text categoryP">${arr[i].description}</p>
                             <div class="text-center">
-                            <a href="#" class="btn btn-secondary categoryButton">Shop ${arr[i].section}</a>
+                            <button type="button" class="btn btn-secondary categoryButton" id="${arr[i].section}Button">Shop ${arr[i].section}</button>
                             </div>
                             </div>
                             </div>
