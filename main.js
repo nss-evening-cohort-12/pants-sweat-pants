@@ -19,16 +19,6 @@ const categoryArr = [
 const sweatpants = [
   {
     id: 0,
-    name: 'Nicholas Cage Face',
-    gender: "Male",
-    price: 100, 
-    img: "https://contestimg.wish.com/api/webimage/5ba44688236cce377bb52685-large.jpg?cache_buster=978868a7abef943d5963ca125b8b4c78",
-    description: "These are the face of the one true actor Sir Nicholas Cage. He himself wears these daily. He's one of our biggest Customers!",
-    size: ['S', 'M', 'L'],
-    fit: ['Athletic', 'Chino', 'Loose']
-  },
-  {
-    id: 1,
     name: 'Boerum Jogger',
     gender: "Female",
     price: 30, 
@@ -36,6 +26,16 @@ const sweatpants = [
     description: "Sleek athletic fit jogger sweatpants with patented Sweaty's sweat absorbtion technology built right in! You'll never have to shower again!",
     size: ['S', 'M'],
     fit: ['Athletic', 'Chino']
+  },
+  {
+    id: 1,
+    name: 'Nicholas Cage Face',
+    gender: "Male",
+    price: 100, 
+    img: "https://contestimg.wish.com/api/webimage/5ba44688236cce377bb52685-large.jpg?cache_buster=978868a7abef943d5963ca125b8b4c78",
+    description: "These are the face of the one true actor Sir Nicholas Cage. He himself wears these daily. He's one of our biggest Customers!",
+    size: ['S', 'M', 'L'],
+    fit: ['Athletic', 'Chino', 'Loose']
   },
   {
     id: 2,
@@ -59,6 +59,16 @@ const sweatpants = [
   },
   {
     id: 4,
+    name: 'Cozy Fleece',
+    gender: "Kids",
+    price: 15, 
+    img: "https://cdn.shoplightspeed.com/shops/613188/files/9352569/600x600x1/chaser-kids-chaser-kids-girls-love-cozy-sweatpants.jpg",
+    description: "These Sweaty's sweats are perfect for inside or outside play time, these sweats will keep your child moving to his or her heart's content!",
+    size: 'S',
+    fit: 'Loose'
+  },
+  {
+    id: 5,
     name: 'Drawstring Harem Jogger',
     gender: "Female",
     price: 25, 
@@ -67,16 +77,6 @@ const sweatpants = [
     size: ['S', 'M'],
     fit: ['Athletic', 'Chino']
   },
-  {
-    id: 5,
-    name: 'Cozy Fleece',
-    gender: "Kids",
-    price: 15, 
-    img: "https://cdn.shoplightspeed.com/shops/613188/files/9352569/600x600x1/chaser-kids-chaser-kids-girls-love-cozy-sweatpants.jpg",
-    description: "These Sweaty's sweats are perfect for inside or outside play time, these sweats will keep your child moving to his or her heart's content!",
-    size: 'S',
-    fit: 'Loose'
-  }
 ]
 
 const aboutFrames = [
