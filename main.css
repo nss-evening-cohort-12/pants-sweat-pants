@@ -108,7 +108,6 @@ header p {
 
 .customerContainer {
   margin: 40px auto 0;
-  border: 1px solid black;
   max-width: 800px;
   padding:20px;
 }
@@ -195,4 +194,21 @@ footer li {
   background-color: white;
   padding: 25px;
   width: 80%;
+}
+
+.emailResponse p{
+  color: #B17B33;
+}
+
+.emailResponse h2 {
+  color: #B17B33;
+}
+.clientName {
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+#emailSubmit {
+  background-color: #8592AC;
+  border: 1px solid #8592AC;
 }
