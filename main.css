@@ -10,6 +10,14 @@ header h1 {
   margin-bottom: 0px;
 }
 
+header a:link, a:visited, a:active {
+  text-decoration: none;
+}
+
+header a:hover {
+  color: rgba(43,54,62,.1)
+}
+
 header p {
   margin-top: 0px;
   margin-left: 15px;
