@@ -272,5 +272,5 @@ const init = () => {
 
 clickEvents();
 }
-gt
+
 init();
