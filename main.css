@@ -133,6 +133,7 @@ footer li {
 
 #footerLinks a:hover {
   color: #B17B33;
+  
 }
 
 .nav-col {
@@ -145,4 +146,8 @@ footer li {
   justify-content: center;
   margin-top: 15px;
   padding: 0px 11%;
+}
+#reviewSlides{
+  width:640px;
+  height:360px;
 }
