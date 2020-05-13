@@ -278,7 +278,7 @@ const init = () => {
   if (document.body.id === "shop"){
     buildProductCards(sweatpants);
   } else if (document.body.id === "about") {
-
+    buildAboutFrames();
   } else if (document.body.id === "homepage") {
     buildCategoryCards(categoryArr);
   } else if (document.body.id === "reviews"){
