@@ -19,19 +19,23 @@ const categoryArr = [
 const sweatpants = [
   {
     id: 0,
-    name: 'Nicholas Cage Face',
-    gender: "Male",
-    price: 100, 
-    img: "https://contestimg.wish.com/api/webimage/5ba44688236cce377bb52685-large.jpg?cache_buster=978868a7abef943d5963ca125b8b4c78",
-    description: "These are the face of the one true actor Sir Nicholas Cage. He himself wears these daily. He's one of our biggest Customers!"
-  },
-  {
-    id: 1,
     name: 'Boerum Jogger',
     gender: "Female",
     price: 30, 
     img: "https://cdn.shopify.com/s/files/1/0951/7126/products/W_Boerum_Jogger_Heather_Grey_1200x.jpg?v=1563225764",
-    description: "Sleek athletic fit jogger sweatpants with patented Sweaty's sweat absorbtion technology built right in! You'll never have to shower again!"
+    description: "Sleek athletic fit jogger sweatpants with patented Sweaty's sweat absorbtion technology built right in! You'll never have to shower again!",
+    size: ['S', 'M'],
+    fit: ['Athletic', 'Chino']
+  },
+  {
+    id: 1,
+    name: 'Nicholas Cage Face',
+    gender: "Male",
+    price: 100, 
+    img: "https://contestimg.wish.com/api/webimage/5ba44688236cce377bb52685-large.jpg?cache_buster=978868a7abef943d5963ca125b8b4c78",
+    description: "These are the face of the one true actor Sir Nicholas Cage. He himself wears these daily. He's one of our biggest Customers!",
+    size: ['S', 'M', 'L'],
+    fit: ['Athletic', 'Chino', 'Loose']
   },
   {
     id: 2,
@@ -39,7 +43,9 @@ const sweatpants = [
     gender: "Kids",
     price: 10, 
     img: "https://images-na.ssl-images-amazon.com/images/I/81Qoecp1H-L._AC_UX466_.jpg",
-    description: "A simple pair of child size sweatpants. Good enough for any kid's rough and tumble lifestyle. Available for a limited time only!"
+    description: "A simple pair of child size sweatpants. Good enough for any kid's rough and tumble lifestyle. Available for a limited time only!",
+    size: 'S',
+    fit: 'Loose'
   },
   {
     id: 3,
@@ -47,28 +53,34 @@ const sweatpants = [
     gender: "Male",
     price: 20, 
     img: "https://cdn2.bigcommerce.com/server3100/1a4f5/products/46/images/585/0700M__new_gray_heather__78305.1478918250.1280.1280.jpg?c=2",
-    description: "The looser the better, that's what we always say! With these non-elastic swishy sweats, you'll have a full range of motion no matter the commotion!"
+    description: "The looser the better, that's what we always say! With these non-elastic swishy sweats, you'll have a full range of motion no matter the commotion!",
+    size: ['S', 'M', 'L'],
+    fit: ['Athletic', 'Chino', 'Loose']
   },
   {
     id: 4,
-    name: 'Drawstring Harem Jogger',
-    gender: "Female",
-    price: 25, 
-    img: "https://images-na.ssl-images-amazon.com/images/I/61%2BQKzcZiEL._AC_UX342_.jpg",
-    description: "Tie 'em up! These sweats offer an enhanced Sweaty's drawstring technology previously unknown to human kind. Simply tie, and forget!"
-  },
-  {
-    id: 5,
     name: 'Cozy Fleece',
     gender: "Kids",
     price: 15, 
     img: "https://cdn.shoplightspeed.com/shops/613188/files/9352569/600x600x1/chaser-kids-chaser-kids-girls-love-cozy-sweatpants.jpg",
-    description: "These Sweaty's sweats are perfect for inside or outside play time, these sweats will keep your child moving to his or her heart's content!"
-  }
+    description: "These Sweaty's sweats are perfect for inside or outside play time, these sweats will keep your child moving to his or her heart's content!",
+    size: 'S',
+    fit: 'Loose'
+  },
+  {
+    id: 5,
+    name: 'Drawstring Harem Jogger',
+    gender: "Female",
+    price: 25, 
+    img: "https://images-na.ssl-images-amazon.com/images/I/61%2BQKzcZiEL._AC_UX342_.jpg",
+    description: "Tie 'em up! These sweats offer an enhanced Sweaty's drawstring technology previously unknown to human kind. Simply tie, and forget!",
+    size: ['S', 'M'],
+    fit: ['Athletic', 'Chino']
+  },
 ]
 
 const aboutFrames = [
-   {
+  {
     frameImg: "images/about_storyboard1.png",
     frameText: "In 1927, pen was put to paper for the first time to create a vision of the original Sweaty's outfit. Times have changed but our abundance of creativy hasn't."
 }, {
@@ -81,7 +93,7 @@ const aboutFrames = [
     frameImg: "images/about_storyboard4.png",
     frameText: "Sweaty's proudly donates 5% of our profits every leap year to local charities and organizations that help those less fortunate than our CEO's."
 }
-]
+];
 
 const printToDom = (selector, textToPrint) => {
   const selectedDiv = document.querySelector(selector);
@@ -110,22 +122,100 @@ const buildCategoryCards = (arr) => {
 const buildProductCards = (sweatsArr) => {
   let domString = '';
   for (let i = 0; i < sweatsArr.length; i++) {
-    domString += `
-        <div class="Card mx-4 mt-4 rounded" id="sweatsCard">
-          <img src="${sweatsArr[i].img}" class="card-img-top p-3" alt="Sweats">
-          <div class="sweatCardBody card-body pb-0">
-            <h5 class="card-title">${sweatsArr[i].name}</h5>
-            <p class="card-text">${sweatsArr[i].description}</p>
-            <div class="card-footer row">
-              <p class="card-text text-center mb-0 p-0 col-6"><small class="text">$${sweatsArr[i].price}</small></p>
-              <button type="button" class="btn btn-primary col-6">BUY</button>
-            </div>
-          </div>
-        </div>
-    `
+            domString += `<div class="Card mx-4 mt-4 rounded" id="sweatsCard">
+                            <img src="${sweatsArr[i].img}" class="card-img-top p-3" alt="Sweats">
+                            <div class="sweatCardBody card-body pb-0">
+                              <h5 class="card-title">${sweatsArr[i].name}</h5>
+                              <p class="card-text">${sweatsArr[i].description}</p>
+                              <div class="row justify-content-center">`
+
+          if (sweatsArr[i].size === 'S'){
+            domString += `<div class="btn-group">
+                              <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">S</a>
+                            </div>
+                          </div> `
+          } else if (sweatsArr[i].size.includes('S','M') && sweatsArr[i].size.includes('L') === false){
+            domString += `
+                          <div class="btn-group">
+                              <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">S</a>
+                              <a class="dropdown-item" href="#">M</a>
+                            </div>
+                          </div>`
+          } else if (sweatsArr[i].size.includes('S','M','L')){
+            domString += `
+                          <div class="btn-group">
+                              <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">S</a>
+                              <a class="dropdown-item" href="#">M</a>
+                              <a class="dropdown-item" href="#">L</a>
+                            </div>
+                          </div>`
+          };
+          if (sweatsArr[i].fit === 'Loose') {
+            domString += `
+                          <div class="btn-group ml-2">
+                              <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fit</button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Loose</a>
+                            </div>
+                          </div>`
+          } else if (sweatsArr[i].fit.includes('Athletic', 'Chino') && sweatsArr[i].fit.includes('Loose') === false){
+            domString += `
+                          <div class="btn-group ml-2">
+                              <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fit</button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Athletic</a>
+                              <a class="dropdown-item" href="#">Chino</a>
+                            </div>
+                          </div>`
+          } else if (sweatsArr[i].fit.includes('Athletic','Chino','Loose')){
+            domString += `
+                          <div class="btn-group ml-2">
+                              <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fit</button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Athletic</a>
+                              <a class="dropdown-item" href="#">Chino</a>
+                              <a class="dropdown-item" href="#">Loose</a>
+                            </div>
+                          </div>`
+          }
+          domString += `
+                          </div>
+                          <div class="card-footer row">
+                            <p class="card-text text-center mb-0 p-0 col-6"><small class="text">$${sweatsArr[i].price}</small></p>
+                            <button type="button" class="btn btn-primary col-6">BUY</button>
+                          </div>
+                        </div>
+                      </div>`
   }
+
   printToDom('#productCardContainer', domString)
+  
 }
+
+const buildAboutFrames = () => {
+  let domString = '';
+  for (let i = 0; i < aboutFrames.length; i++) {
+    domString += `<div class="about-frame">
+      <img src="${aboutFrames[i].frameImg}" alt="">`;
+    if ( i % 2 == 0) {
+      domString += '<div class="about-textblock-right">';
+    } else {
+      domString += '<div class="about-textblock-left">';
+    }
+    domString += `<p>${aboutFrames[i].frameText}</p>
+      </div>
+    </div>`
+  }
+  printToDom('#aboutStoryboard', domString);
+}
+
+
 let emailArr = [];
 
 const buildClient = () => {
@@ -172,7 +262,7 @@ const filterSweats = (event) => {
 }
 
 const clickEvents = () => {
-  if (document.body.id === 'shop') {
+  if (document.body.id === 'shop' || document.body.id === 'homepage') {
     document.querySelector('#Male').addEventListener('click', filterSweats);
     document.querySelector('#Female').addEventListener('click', filterSweats);
     document.querySelector('#Kids').addEventListener('click', filterSweats);
@@ -183,22 +273,6 @@ const clickEvents = () => {
   }
 }
 
-const buildAboutFrames = () => {
-  let domString = '';
-  for (let i = 0; i < aboutFrames.length; i++) {
-    domString += `<div class="about-frame">
-      <img src="${aboutFrames[i].frameImg}" alt="">`;
-    if ( i % 2 == 0) {
-      domString += '<div class="about-textblock-right">';
-    } else {
-      domString += '<div class="about-textblock-left">';
-    }
-    domString += `<p>${aboutFrames[i].frameText}</p>
-      </div>
-    </div>`
-  }
-  printToDom('#aboutStoryboard', domString);
-}
 
 const init = () => {
   if (document.body.id === "shop"){
@@ -213,7 +287,7 @@ const init = () => {
     
   };
 
-  clickEvents();
+clickEvents();
 }
 
 init();
