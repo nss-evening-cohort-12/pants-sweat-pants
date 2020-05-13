@@ -63,7 +63,7 @@ const sweatpants = [
     gender: "Kids",
     price: 15, 
     img: "https://cdn.shoplightspeed.com/shops/613188/files/9352569/600x600x1/chaser-kids-chaser-kids-girls-love-cozy-sweatpants.jpg",
-    description: "These sweaty's sweats are perfect for inside or outside play time, these sweats will keep your child moving to his or her heart's content!"
+    description: "These Sweaty's sweats are perfect for inside or outside play time, these sweats will keep your child moving to his or her heart's content!"
   }
 ]
 
@@ -114,8 +114,6 @@ const buildProductCards = (sweatsArr) => {
 const filterSweats = (event) => {
   let buttonId = event.target.id;
   const tempSweatsArr = [];
-
-  console.log(buttonId)
 
   if (buttonId === 'All'){
     buildProductCards(sweatpants);
