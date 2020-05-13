@@ -80,7 +80,7 @@ const sweatpants = [
 ]
 
 const aboutFrames = [
-   {
+  {
     frameImg: "images/about_storyboard1.png",
     frameText: "In 1927, pen was put to paper for the first time to create a vision of the original Sweaty's outfit. Times have changed but our abundance of creativy hasn't."
 }, {
@@ -93,7 +93,7 @@ const aboutFrames = [
     frameImg: "images/about_storyboard4.png",
     frameText: "Sweaty's proudly donates 5% of our profits every leap year to local charities and organizations that help those less fortunate than our CEO's."
 }
-]
+];
 
 const printToDom = (selector, textToPrint) => {
   const selectedDiv = document.querySelector(selector);
@@ -120,14 +120,14 @@ const buildCategoryCards = (arr) => {
 }
 
 const buildProductCards = (sweatsArr) => {
-  let domString = '';gi
+  let domString = '';
   for (let i = 0; i < sweatsArr.length; i++) {
-          domString += `<div class="Card mx-4 mt-4 rounded" id="sweatsCard">
-                          <img src="${sweatsArr[i].img}" class="card-img-top p-3" alt="Sweats">
-                          <div class="sweatCardBody card-body pb-0">
-                            <h5 class="card-title">${sweatsArr[i].name}</h5>
-                            <p class="card-text">${sweatsArr[i].description}</p>
-                            <div class="row justify-content-center">`
+            domString += `<div class="Card mx-4 mt-4 rounded" id="sweatsCard">
+                            <img src="${sweatsArr[i].img}" class="card-img-top p-3" alt="Sweats">
+                            <div class="sweatCardBody card-body pb-0">
+                              <h5 class="card-title">${sweatsArr[i].name}</h5>
+                              <p class="card-text">${sweatsArr[i].description}</p>
+                              <div class="row justify-content-center">`
 
           if (sweatsArr[i].size === 'S'){
             domString += `<div class="btn-group">
@@ -256,28 +256,12 @@ const clickEvents = () => {
   }
 }
 
-const buildAboutFrames = () => {
-  let domString = '';
-  for (let i = 0; i < aboutFrames.length; i++) {
-    domString += `<div class="about-frame">
-      <img src="${aboutFrames[i].frameImg}" alt="">`;
-    if ( i % 2 == 0) {
-      domString += '<div class="about-textblock-right">';
-    } else {
-      domString += '<div class="about-textblock-left">';
-    }
-    domString += `<p>${aboutFrames[i].frameText}</p>
-      </div>
-    </div>`
-  }
-  printToDom('#aboutStoryboard', domString);
-}
 
 const init = () => {
   if (document.body.id === "shop"){
     buildProductCards(sweatpants);
   } else if (document.body.id === "about") {
-    buildAboutFrames();
+
   } else if (document.body.id === "homepage") {
     buildCategoryCards(categoryArr);
   } else if (document.body.id === "reviews"){
@@ -286,7 +270,8 @@ const init = () => {
     
   };
 
-  clickEvents();
+clickEvents();
+
 }
 
 init();
