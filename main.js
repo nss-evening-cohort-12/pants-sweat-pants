@@ -145,6 +145,32 @@ const buildProductCards = (sweatsArr) => {
             
   printToDom('#productCardContainer', domString)
 }
+let emailArr = [];
+
+const buildClient = () => {
+  let client = {};
+  client.firstName = document.querySelector('#inputFirstName').value;
+   if(client.firstName == false){
+    return 'required';
+  }
+  client.lastName = document.querySelector('#inputLastName').value;
+  emailArr.push(client);
+  buildEmailResponse(emailArr);
+}
+
+const buildEmailResponse = (arr) => {
+  let domString = '';
+
+  for(let i = 0; i < emailArr.length; i++) {
+    domString += `<div class="emailResponse">
+                  <h2>Thank You!</h2>
+                  <p class="clientName">${arr[i].firstName} ${arr[i].lastName},</p>
+                  <p>Thank you for reaching out to our Customer Service Department. We value all of our Sweaty customers, and will respond to your question as soon as possible. Have a great day.</p>
+                  </div>
+                `
+    }
+  printToDom('#email', domString);
+}
 
 const filterSweats = (event) => {
   let buttonId = event.target.id;
@@ -171,6 +197,9 @@ const clickEvents = () => {
     document.querySelector('#Kids').addEventListener('click', filterSweats);
     document.querySelector('#All').addEventListener('click', filterSweats);
   }
+  if (document.body.id === 'customerservice') {
+    document.querySelector('#emailSubmit').addEventListener('click', buildClient);
+  }
 }
 
 
@@ -183,9 +212,12 @@ const init = () => {
     buildCategoryCards(categoryArr);
   } else if (document.body.id === "reviews"){
 
+  } else if (document.body.id === "customerservice"){
+    
   };
-  clickEvents();
-}
 
+clickEvents();
+
+}
 
 init();
