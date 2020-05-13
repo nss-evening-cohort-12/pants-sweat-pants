@@ -203,6 +203,14 @@ footer li {
   color: #B17B33;
   font-style: italic;
   top: 42.5%;
+}
+
+#reviewsCarousel{
+  max-height: auto;
+  max-width: 95%;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 .emailResponse p{
   color: #B17B33;
