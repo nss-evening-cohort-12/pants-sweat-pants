@@ -104,7 +104,7 @@ const buildCategoryCards = (arr) => {
 }
 
 const buildProductCards = (sweatsArr) => {
-  let domString = '';
+  let domString = '';gi
   for (let i = 0; i < sweatsArr.length; i++) {
           domString += `<div class="Card mx-4 mt-4 rounded" id="sweatsCard">
                           <img src="${sweatsArr[i].img}" class="card-img-top p-3" alt="Sweats">
