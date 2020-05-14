@@ -263,10 +263,10 @@ const filterSweats = (event) => {
 
 const navigateToShop = () => {
   document.getElementById("MensButton").onclick = function() {
-    window.location.href = "/shop.html#Mens";
+    window.location.href = "/shop.html#Male";
   };
   document.getElementById("WomensButton").onclick = function() {
-    window.location.href = "/shop.html#Womens";
+    window.location.href = "/shop.html#Female";
   };
 document.getElementById("KidsButton").onclick = function() {
   window.location.href = "/shop.html#Kids";
@@ -274,10 +274,17 @@ document.getElementById("KidsButton").onclick = function() {
 }
 
 const filterOnLoad = () => {
+  let tempCategory = [];
   if(window.location.hash) {
     var hash = window.location.hash.substring(1); 
-    console.log(hash);
+    // console.log(hash);
+    for (let i = 0; i < sweatpants.length; i++){
+      if (sweatpants[i].gender === hash){
+        tempCategory.push(sweatpants[i])
+      } 
 };
+buildProductCards(tempCategory);
+}
 }
 
 const clickEvents = () => {
