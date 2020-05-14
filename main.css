@@ -244,6 +244,28 @@ footer li {
 #reviewCard p{
   font-size: 12pt;
 }
+#reviewCard h5{
+  font-size: 17px;
+  color: #C9CADC;
+}
+.formReview{
+  display: flex;
+  justify-content: center;
+  color: #524D57;
+}
+.formTitle{
+  text-align: center;
+  color: #8592AC;
+}
+.btn-outline-secondary {
+  color: #B17B33;
+  border-color: #B17B33;
+}
+.btn-outline-secondary:hover{
+  color: #c9cadc;
+  border-color: #C9CADC;
+  background-color: #524d57;
+}
 .emailResponse p{
   color: #B17B33;
 }
