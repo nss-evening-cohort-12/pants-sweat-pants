@@ -53,6 +53,8 @@ header p {
   color: #8592AC;
 }
 
+
+
 .jumbotron {
   padding: 0px;
   background-image: url("images/jumbotronimage.jpg");
@@ -220,9 +222,6 @@ footer li {
   margin-left: auto;
 }
 
-#aboutStoryboard {
-}
-
 .about-frame {
   display: flex;
   justify-content: center;
@@ -269,4 +268,34 @@ footer li {
 #emailSubmit {
   background-color: #8592AC;
   border: 1px solid #8592AC;
+}
+
+@media only screen and (max-width: 1270px) {
+  .jumbotron {
+    padding: 0px;
+    background-image: url("images/jumbotronimage_med.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 580px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .jumbotron {
+    padding: 0px;
+    background-image: url("images/jumbotronimage_tab.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 580px;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .jumbotron {
+    padding: 0px;
+    background-image: url("images/jumbotronimage_phone.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 580px;
+  }
 }
