@@ -214,29 +214,35 @@ footer li {
   font-style: italic;
   top: 40%;
 }
-
+.reviewTitle{
+  color: #8592AC;
+  margin: 30px;
+  font-size: 25pt;
+  border-top: 3px;
+  border-color: #8592AC;
+}
 #reviewsCarousel{
   max-height: auto;
-  max-width: 95%;
-  margin-right: auto;
-  margin-left: auto;
+  max-width: 100%;
 }
 .customerReviews{
   text-align: center;
   color: #524D57;
 }
-.reviews{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+#personalReviews{
+  margin: 20px;
 }
 #reviewCard{
-  background-color: #8592AC;
+  background-color: #C9CADC;
   border: none;
-  margin: 5px;
+  padding: 10px;
+}
+.card-body{
+  background-color: #8592AC;
+  border-radius: 5px;
 }
 #reviewCard p{
-  font-size: 13pt;
+  font-size: 12pt;
 }
 .emailResponse p{
   color: #B17B33;

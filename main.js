@@ -274,8 +274,8 @@ const reviews = [
   },
   {
     name: "Jon",
-    review: "I'm baby authentic PBR&B messenger bag neutra, put a bird on it keytar narwhal try-hard kitsch pitchfork chambray cardigan tumblr. Umami subway tile man braid copper mug tumeric readymade try-hard shoreditch tattooed kinfolk VHS williamsburg DIY keytar irony. YOLO truffaut seitan retro marfa shoreditch migas raw denim wolf actually helvetica. Ugh vaporware organic af VHS hella crucifix copper mug marfa. Farm-to-table austin 8-bit fingerstache. Semiotics art party shoreditch cliche, venmo brooklyn poutine readymade synth tbh squid.",
-    publish: true,
+    review: "I'm baby authentic PBR&B messenger bag neutra, put a bird on it keytar narwhal try-hard kitsch pitchfork chambray cardigan tumblr. Umami subway tile man braid copper mug tumeric readymade try-hard shoreditch tattooed kinfolk VHS williamsburg DIY keytar irony. YOLO truffaut seitan retro marfa shoreditch migas raw denim wolf actually helvetica.",
+    publish: false,
   },
   {
     name: "Lori Smith",
@@ -299,7 +299,7 @@ const buildReviews = () => {
 
   for (let i = 0; i < reviews.length; i++) {
     if (reviews[i].publish === true) {
-    domString += `<div id='reviewCard' class="card text-left" style="width: 18rem;">`;
+    domString += `<div id='reviewCard' class="card col-sm-4 text-left">`;
     domString += `<div class="card-body">`;
     domString += `<h4 class="name">${reviews[i].name}</h4>`;
     domString += `<p class="specificReviews">${reviews[i].review}</p>`;
