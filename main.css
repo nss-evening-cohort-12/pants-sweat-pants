@@ -159,13 +159,14 @@ footer {
   margin-top: 32px;
 }
 
-ul {
+footer ul {
   text-align: center;
-  list-style: inside;
+  min-width: 200px;
 }
 
 footer li {
-  list-style: none;
+    list-style: none;
+    margin: 5px;
 }
 
 .social-icon {
@@ -329,5 +330,18 @@ footer li {
     background-position: center;
     background-size: cover;
     height: 580px;
+  }
+
+  .nav-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0px;
+    padding: 10px;
+  }
+
+  .nav-col {
+    width: 100%;
+    margin: 0px;
   }
 }
