@@ -132,7 +132,7 @@ const buildProductCards = (sweatsArr) => {
           if (sweatsArr[i].size === 'S'){
             domString += `<div class="btn-group">
                               <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
-                            <div class="dropdown-menu">
+                            <div class="dropdown-menu" id="#dropdownSize">
                                 <a class="dropdown-item" href="#">S</a>
                             </div>
                           </div> `
@@ -140,7 +140,7 @@ const buildProductCards = (sweatsArr) => {
             domString += `
                           <div class="btn-group">
                               <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
-                            <div class="dropdown-menu">
+                            <div class="dropdown-menu" id="#dropdownSize">
                               <a class="dropdown-item" href="#">S</a>
                               <a class="dropdown-item" href="#">M</a>
                             </div>
@@ -149,7 +149,7 @@ const buildProductCards = (sweatsArr) => {
             domString += `
                           <div class="btn-group">
                               <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
-                            <div class="dropdown-menu">
+                            <div class="dropdown-menu" id="#dropdownSize">
                               <a class="dropdown-item" href="#">S</a>
                               <a class="dropdown-item" href="#">M</a>
                               <a class="dropdown-item" href="#">L</a>
@@ -160,7 +160,7 @@ const buildProductCards = (sweatsArr) => {
             domString += `
                           <div class="btn-group ml-2">
                               <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fit</button>
-                            <div class="dropdown-menu">
+                            <div class="dropdown-menu" id="dropdownFit">
                               <a class="dropdown-item" href="#">Loose</a>
                             </div>
                           </div>`
@@ -168,7 +168,7 @@ const buildProductCards = (sweatsArr) => {
             domString += `
                           <div class="btn-group ml-2">
                               <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fit</button>
-                            <div class="dropdown-menu">
+                            <div class="dropdown-menu" id="dropdownFit">
                               <a class="dropdown-item" href="#">Athletic</a>
                               <a class="dropdown-item" href="#">Chino</a>
                             </div>
@@ -177,7 +177,7 @@ const buildProductCards = (sweatsArr) => {
             domString += `
                           <div class="btn-group ml-2">
                               <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fit</button>
-                            <div class="dropdown-menu">
+                            <div class="dropdown-menu" id="dropdownFit">
                               <a class="dropdown-item" href="#">Athletic</a>
                               <a class="dropdown-item" href="#">Chino</a>
                               <a class="dropdown-item" href="#">Loose</a>
@@ -195,6 +195,8 @@ const buildProductCards = (sweatsArr) => {
   }
 
   printToDom('#productCardContainer', domString)
+
+  document.querySelector('#dropdownSize').addEventListener('click', buildSweatpantsCart);
   
 }
 
