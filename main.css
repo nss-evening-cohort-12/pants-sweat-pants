@@ -221,6 +221,10 @@ footer li {
   margin-right: auto;
   margin-left: auto;
 }
+.customerReviews{
+  text-align: center;
+  color: #524D57;
+}
 
 .about-frame {
   display: flex;

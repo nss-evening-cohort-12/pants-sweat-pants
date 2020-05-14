@@ -297,15 +297,17 @@ const reviews = [
 const buildReviews = () => {
   let domString = '';
 
-  for (let i = 0; i < projects.length; i++) {
+  for (let i = 0; i < reviews.length; i++) {
     if (reviews[i].publish === true) {
-      domString += `<div class="reviewCards">`;
+      domString += `<div class="card text-left" style="width: 18rem;">`;
+      domString += `<div class="card-body">`;
     domString += `<h4 class="name">${reviews[i].name}</h4>`;
     domString += `<p class="specificReviews">${reviews[i].review}</p>`;
     domString += `</div>`;
+    domString += `</div>`;
     }
   }
-  printToDom('#', domString);
+  printToDom('#personalReviews', domString);
 }
 
 const clickEvents = () => {
@@ -329,6 +331,7 @@ const init = () => {
   } else if (document.body.id === "homepage") {
     buildCategoryCards(categoryArr);
   } else if (document.body.id === "reviews"){
+    buildReviews();
 
   } else if (document.body.id === "customerservice"){
     
