@@ -278,7 +278,7 @@ const reviews = [
     name: "Bill Dauterive",
     type: "Cotton Jogger",
     review: "I'm baby authentic PBR&B messenger bag neutra, put a bird on it keytar narwhal try-hard kitsch pitchfork chambray cardigan tumblr. Umami subway tile man braid copper mug tumeric readymade try-hard shoreditch tattooed kinfolk VHS williamsburg DIY keytar irony. YOLO truffaut seitan retro marfa shoreditch migas raw denim wolf actually helvetica.",
-    publish: true,
+    publish: false,
   },
   {
     name: "Lori Smith",
@@ -299,6 +299,26 @@ const reviews = [
     publish: true,
   },
 ];
+
+const createCustomerReview = (event) => {
+  let custReview = {};
+
+  if (document.querySelector('#formName').value === "" ) {
+    alert("FILL IN YOUR info");
+    return
+  }
+  custReview.name = document.querySelector('#formName').value;
+  custReview.type = document.querySelector('#formType').value;
+  custReview.review = document.querySelector('#formThoughts').value;
+  custReview.publish = true;
+  reviews.push(custReview);
+
+  document.querySelector('#formName').value="";
+  document.querySelector('#formType').value="";
+  document.querySelector('#formThoughts').value="";
+
+  buildReviews();
+};
 
 const buildReviews = () => {
   let domString = '';
@@ -352,6 +372,9 @@ const clickEvents = () => {
   }
   if (document.body.id === 'customerservice') {
     document.querySelector('#emailSubmit').addEventListener('click', buildClient);
+  }
+  if (document.body.id === "reviews"){
+    document.querySelector('#sweatit').addEventListener('click', createCustomerReview);
   }
 }
 
