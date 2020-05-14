@@ -299,7 +299,7 @@ const buildReviews = () => {
 
   for (let i = 0; i < reviews.length; i++) {
     if (reviews[i].publish === true) {
-      domString += `<div class="card text-left" style="width: 18rem;">`;
+      domString += `<div id='reviewCard class="card text-left" style="width: 18rem;">`;
       domString += `<div class="card-body">`;
     domString += `<h4 class="name">${reviews[i].name}</h4>`;
     domString += `<p class="specificReviews">${reviews[i].review}</p>`;
