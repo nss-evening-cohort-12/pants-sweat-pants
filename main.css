@@ -224,7 +224,19 @@ footer li {
   text-align: center;
   color: #524D57;
 }
-
+.reviews{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#reviewCard{
+  background-color: #8592AC;
+  border: none;
+  margin: 5px;
+}
+#reviewCard p{
+  font-size: 13pt;
+}
 .emailResponse p{
   color: #B17B33;
 }

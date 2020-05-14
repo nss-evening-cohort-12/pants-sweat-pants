@@ -265,32 +265,32 @@ const reviews = [
   {
     name: "Jimmy Dean",
     review: "The best sweatpants to enjoy sausage!",
-    publish: true
+    publish: true,
   },
   {
     name: "Hodor",
     review: "Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor",
-    publish: true
+    publish: true,
   },
   {
     name: "Jon",
     review: "I'm baby authentic PBR&B messenger bag neutra, put a bird on it keytar narwhal try-hard kitsch pitchfork chambray cardigan tumblr. Umami subway tile man braid copper mug tumeric readymade try-hard shoreditch tattooed kinfolk VHS williamsburg DIY keytar irony. YOLO truffaut seitan retro marfa shoreditch migas raw denim wolf actually helvetica. Ugh vaporware organic af VHS hella crucifix copper mug marfa. Farm-to-table austin 8-bit fingerstache. Semiotics art party shoreditch cliche, venmo brooklyn poutine readymade synth tbh squid.",
-    publish: true
+    publish: true,
   },
   {
     name: "Lori Smith",
     review: "Meh man braid franzen, eu austin irure in. Direct trade raclette poutine bushwick retro in. Fingerstache adaptogen activated charcoal velit nulla, pug aliqua direct trade. Meggings in raw denim, reprehenderit nulla hella ex.",
-    publish: true
+    publish: true,
   },
   {
     name: "Craig Bunton",
     review: "8-bit plaid beard tote bag blog blue bottle. Kitsch brunch kogi knausgaard chillwave art party woke leggings yuccie lumbersexual, vexillologist poutine. Copper mug narwhal aesthetic, occupy lo-fi XOXO gentrify migas vaporware tousled selvage adaptogen pour-over. Next level organic single-origin coffee pour-over.",
-    publish: true
+    publish: true,
   },
   {
     name: "Carol Farrell",
     review: "What's a rerun? You wanna a Pepsi, pall, you're gonna pay for it. Ah. There's that word again, heavy. Why are things so heavy in the future. Is there a problem with the Earth's gravitational pull? Just turn around, McFly, and walk away. Are you deaf, McFly? Close the door and beat it.",
-    publish: true
+    publish: true,
   },
 ];
 
@@ -299,8 +299,8 @@ const buildReviews = () => {
 
   for (let i = 0; i < reviews.length; i++) {
     if (reviews[i].publish === true) {
-      domString += `<div id='reviewCard class="card text-left" style="width: 18rem;">`;
-      domString += `<div class="card-body">`;
+    domString += `<div id='reviewCard' class="card text-left" style="width: 18rem;">`;
+    domString += `<div class="card-body">`;
     domString += `<h4 class="name">${reviews[i].name}</h4>`;
     domString += `<p class="specificReviews">${reviews[i].review}</p>`;
     domString += `</div>`;
@@ -360,7 +360,6 @@ const init = () => {
     navigateToShop();
   } else if (document.body.id === "reviews"){
     buildReviews();
-
   } else if (document.body.id === "customerservice"){
     
   };
