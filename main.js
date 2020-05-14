@@ -110,7 +110,7 @@ const buildCategoryCards = (arr) => {
                             <div class="card-body categoryBody">
                             <p class="card-text categoryP">${arr[i].description}</p>
                             <div class="text-center">
-                            <a href="#" class="btn btn-secondary categoryButton">Shop ${arr[i].section}</a>
+                            <button type="button" class="btn btn-secondary categoryButton" id="${arr[i].section}Button">Shop ${arr[i].section}</button>
                             </div>
                             </div>
                             </div>
@@ -261,6 +261,32 @@ const filterSweats = (event) => {
   buildProductCards(tempSweatsArr);
 }
 
+const navigateToShop = () => {
+  document.getElementById("MensButton").onclick = function() {
+    window.location.href = "/shop.html#Male";
+  };
+  document.getElementById("WomensButton").onclick = function() {
+    window.location.href = "/shop.html#Female";
+  };
+document.getElementById("KidsButton").onclick = function() {
+  window.location.href = "/shop.html#Kids";
+};
+}
+
+const filterOnLoad = () => {
+  let tempCategory = [];
+  if(window.location.hash) {
+    var hash = window.location.hash.substring(1); 
+    // console.log(hash);
+    for (let i = 0; i < sweatpants.length; i++){
+      if (sweatpants[i].gender === hash){
+        tempCategory.push(sweatpants[i])
+      } 
+};
+buildProductCards(tempCategory);
+}
+}
+
 const clickEvents = () => {
   if (document.body.id === 'shop' || document.body.id === 'homepage') {
     document.querySelector('#Male').addEventListener('click', filterSweats);
@@ -277,10 +303,12 @@ const clickEvents = () => {
 const init = () => {
   if (document.body.id === "shop"){
     buildProductCards(sweatpants);
+    filterOnLoad()
   } else if (document.body.id === "about") {
     buildAboutFrames();
   } else if (document.body.id === "homepage") {
     buildCategoryCards(categoryArr);
+    navigateToShop();
   } else if (document.body.id === "reviews"){
 
   } else if (document.body.id === "customerservice"){
