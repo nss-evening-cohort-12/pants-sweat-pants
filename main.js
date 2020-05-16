@@ -95,6 +95,9 @@ const aboutFrames = [
 }
 ];
 
+let shoppingCart = [];
+let cartTotal = 0;
+
 const printToDom = (selector, textToPrint) => {
   const selectedDiv = document.querySelector(selector);
   selectedDiv.innerHTML = textToPrint;
@@ -205,7 +208,6 @@ const buildProductCards = (sweatsArr) => {
 
 }
 
-
 const filterSweats = (event) => {
   let buttonId = event.target.id;
   const tempSweatsArr = [];
@@ -224,10 +226,43 @@ const filterSweats = (event) => {
   buildProductCards(tempSweatsArr);
 }
 
+const addToCart = () => {
+  let cartContentString = `<table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Item</th>
+                                <th scope="col">Fit</th>
+                                <th scope="col">Size</th>
+                                <th scope="col">Price</th>
+                              </tr>
+                            </thead>
+                            <tbody>`;
+  for (let i = 0; i <shoppingCart.length; i++) {
+    cartContentString += `<tr>
+                            <td>${shoppingCart[i].type}</td>
+                            <td>${shoppingCart[i].fit}</td>
+                            <td>${shoppingCart[i].size}</td>
+                            <td>$${shoppingCart[i].price}</td>
+                          </tr>`
+  }
+  cartContentString += `</tbody>
+  <thead class="thead-dark">
+  <tr>
+  <th scope="col">Total:</th>
+  <th scope="col"></th>
+  <th scope="col"></th>
+  <th scope="col">$${cartTotal}</th>
+                          </tr>
+
+  </thead>
+                      </table>`
+   
+    printToDom('#cartContents', cartContentString);
+    printToDom('#totalCostContainer', `${cartTotal}.00`)
+}
 
 const buildSweatpantsCart = (event) => {
 const tempCartArr = [];
-console.log(event);
 let size= event.target.parentNode.parentNode.childNodes[5].childNodes[1].childNodes[1].value;
 let fit= event.target.parentNode.parentNode.childNodes[5].childNodes[3].childNodes[1].value;
 
@@ -238,7 +273,15 @@ let id = event.target.closest('.sweatsCard').id;
 
 window.alert(`You added ${sweatpants[id].name} in size ${tempCartArr[0]} in ${tempCartArr[1]} fit to your cart!`)
 
-
+// add to cart 
+let objectToAdd = {};
+objectToAdd["type"] = sweatpants[id].name;
+objectToAdd["size"] = tempCartArr[0];
+objectToAdd["fit"] = tempCartArr[1];
+objectToAdd["price"] = sweatpants[id].price;
+shoppingCart.push(objectToAdd);
+cartTotal += sweatpants[id].price;
+addToCart();
 }
 
 const buildAboutFrames = () => {
@@ -420,5 +463,5 @@ const init = () => {
 
 clickEvents();
 
-
 init();
+
