@@ -201,6 +201,8 @@ const buildProductCards = (sweatsArr) => {
   for (let i=0; i<dropdownSelector.length; i++){
     dropdownSelector[i].addEventListener('click', buildSweatpantsCart);
   }
+
+  
 }
 
 
