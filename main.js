@@ -122,7 +122,7 @@ const buildCategoryCards = (arr) => {
 const buildProductCards = (sweatsArr) => {
   let domString = '';
   for (let i = 0; i < sweatsArr.length; i++) {
-            domString += `<div class="Card mx-4 mt-4 rounded" id="sweatsCard">
+            domString += `<div class="Card mx-4 mt-4 rounded sweatsCard" id="${sweatsArr[i].id}">
                             <img src="${sweatsArr[i].img}" class="card-img-top p-3" alt="Sweats">
                             <div class="sweatCardBody card-body pb-0">
                               <h5 class="card-title">${sweatsArr[i].name}</h5>
@@ -130,65 +130,60 @@ const buildProductCards = (sweatsArr) => {
                               <div class="row justify-content-center">`
 
           if (sweatsArr[i].size === 'S'){
-            domString += `<div class="btn-group">
-                              <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
-                            <div class="dropdown-menu" id="selectSize0">
-                                <a class="dropdown-item" id="pantSize1" href="#">S</a>
-                            </div>
-                          </div> `
+            domString += `
+                            <div>
+                              <select class="sizeDropdown" id="selectSize0">
+                                <option id="sizeButton0" value="S">S</option>
+                              </select>
+                            </div> `
           } else if (sweatsArr[i].size.includes('S','M') && sweatsArr[i].size.includes('L') === false){
             domString += `
-                          <div class="btn-group">
-                              <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
-                            <div class="dropdown-menu" id="selectSize1">
-                              <a class="dropdown-item" id="pantSize" href="#">S</a>
-                              <a class="dropdown-item" id="pantSize" href="#">M</a>
-                            </div>
-                          </div>`
+                            <div>
+                              <select class="sizeDropdown" id="selectSize1">
+                                <option id="sizeButton1" value="S">S</option>
+                                <option id="sizeButton2" value="M">M</option>
+                              </select>
+                            </div>`
           } else if (sweatsArr[i].size.includes('S','M','L')){
             domString += `
-                          <div class="btn-group">
-                              <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
-                            <div class="dropdown-menu" id="selectSize2">
-                              <a class="dropdown-item" id="pantSize" href="#">S</a>
-                              <a class="dropdown-item" id="pantSize" href="#">M</a>
-                              <a class="dropdown-item" id="pantSize" href="#">L</a>
-                            </div>
-                          </div>`
+                            <div>
+                              <select class="sizeDropdown" id="selectSize2">
+                                <option id="sizeButton3" value="S">S</option>
+                                <option id="sizeButton4" value="M">M</option>
+                                <option id="sizeButton5" value="L">L</option>
+                              </select>
+                            </div>`
           };
           if (sweatsArr[i].fit === 'Loose') {
             domString += `
-                          <div class="btn-group ml-2">
-                              <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fit</button>
-                            <div class="dropdown-menu" id="selectFit0">
-                              <a class="dropdown-item" href="#">Loose</a>
-                            </div>
-                          </div>`
+                            <div>
+                              <select class="fitDropdown" id="selectFit0">
+                                <option id="fitButton0" value="Loose">Loose</option>
+                              </select>
+                            </div>`
           } else if (sweatsArr[i].fit.includes('Athletic', 'Chino') && sweatsArr[i].fit.includes('Loose') === false){
             domString += `
-                          <div class="btn-group ml-2">
-                              <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fit</button>
-                            <div class="dropdown-menu" id="selectFit1">
-                              <a class="dropdown-item" href="#">Athletic</a>
-                              <a class="dropdown-item" href="#">Chino</a>
-                            </div>
-                          </div>`
+                            <div>
+                              <select class="fitDropdown" id="selectFit1">
+                                <option id="fitButton1" value="Athletic">Athletic</option>
+                                <option id="fitButton2" value="Chino">Chino</option>
+                              </select>
+                            </div>`
           } else if (sweatsArr[i].fit.includes('Athletic','Chino','Loose')){
             domString += `
-                          <div class="btn-group ml-2">
-                              <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fit</button>
-                            <div class="dropdown-menu" id="selectFit2">
-                              <a class="dropdown-item" href="#">Athletic</a>
-                              <a class="dropdown-item" href="#">Chino</a>
-                              <a class="dropdown-item" href="#">Loose</a>
-                            </div>
-                          </div>`
+                            <div>
+                              <select class="fitDropdown" id="selectFit2" >
+                                <option id="fitButton3" value="Athletic">Athletic</option>
+                                <option id="fitButton4" value="Chino">Chino</option>
+                                <option id="fitButton5" value="Loose">Loose</option>
+                              </select>
+                            </div>`
           }
           domString += `
                           </div>
                           <div class="card-footer row">
                             <p class="card-text text-center mb-0 p-0 col-6"><small class="text">$${sweatsArr[i].price}</small></p>
-                            <button type="button" class="btn btn-primary col-6">BUY</button>
+                            <button type="button" class="btn btn-primary col-6 buyButton">BUY</button>
                           </div>
                         </div>
                       </div>`
@@ -196,12 +191,25 @@ const buildProductCards = (sweatsArr) => {
 
   printToDom('#productCardContainer', domString)
 
-  let dropdownSelector = document.querySelectorAll('.dropdown-menu');
+  const buyButton = document.querySelectorAll('.buyButton');
   
-  for (let i=0; i<dropdownSelector.length; i++){
-    dropdownSelector[i].addEventListener('click', buildSweatpantsCart);
+  for (let i=0; i<buyButton.length; i++){
+    buyButton[i].addEventListener('click', buildSweatpantsCart);
   }
 
+  const sizeDropdownSelector = document.querySelectorAll('.sizeDropdown');
+  
+  for (let i=0; i<sizeDropdownSelector.length; i++){
+    sizeDropdownSelector[i].addEventListener('click', buildSweatpantsCart);
+  }
+
+  const fitDropdownSelector = document.querySelectorAll('.fitDropdown');
+  
+  for (let i=0; i<fitDropdownSelector.length; i++){
+    fitDropdownSelector[i].addEventListener('click', buildSweatpantsCart);
+  }
+
+  
   
 }
 
@@ -226,7 +234,7 @@ const filterSweats = (event) => {
 
 
 const buildSweatpantsCart = (event) => {
-  
+  console.log(event)
 }
 
 const buildAboutFrames = () => {
@@ -278,37 +286,31 @@ const buildEmailResponse = (arr) => {
 const reviews = [
   {
     name: "Jimmy Dean",
-    type: "Cozy Fleece",
     review: "The best sweatpants to enjoy sausage!",
     publish: true,
   },
   {
     name: "Hodor",
-    type: "Nicholas Cage Face",
     review: "Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor",
     publish: true,
   },
   {
-    name: "Bill Dauterive",
-    type: "Cotton Jogger",
+    name: "Jon",
     review: "I'm baby authentic PBR&B messenger bag neutra, put a bird on it keytar narwhal try-hard kitsch pitchfork chambray cardigan tumblr. Umami subway tile man braid copper mug tumeric readymade try-hard shoreditch tattooed kinfolk VHS williamsburg DIY keytar irony. YOLO truffaut seitan retro marfa shoreditch migas raw denim wolf actually helvetica.",
-    publish: true,
-  },
-  {
-    name: "Lori Smith",
-    type: "Boerum Jogger",
-    review: "Meh man braid franzen, eu austin irure in. Direct trade raclette poutine bushwick retro in. Fingerstache adaptogen activated charcoal velit nulla, pug aliqua direct trade. Meggings in raw denim, reprehenderit nulla hella ex.",
     publish: false,
   },
   {
+    name: "Lori Smith",
+    review: "Meh man braid franzen, eu austin irure in. Direct trade raclette poutine bushwick retro in. Fingerstache adaptogen activated charcoal velit nulla, pug aliqua direct trade. Meggings in raw denim, reprehenderit nulla hella ex.",
+    publish: true,
+  },
+  {
     name: "Craig Bunton",
-    type: "Non Elastic",
     review: "8-bit plaid beard tote bag blog blue bottle. Kitsch brunch kogi knausgaard chillwave art party woke leggings yuccie lumbersexual, vexillologist poutine. Copper mug narwhal aesthetic, occupy lo-fi XOXO gentrify migas vaporware tousled selvage adaptogen pour-over. Next level organic single-origin coffee pour-over.",
     publish: true,
   },
   {
     name: "Carol Farrell",
-    type: "Cozy Fleece",
     review: "What's a rerun? You wanna a Pepsi, pall, you're gonna pay for it. Ah. There's that word again, heavy. Why are things so heavy in the future. Is there a problem with the Earth's gravitational pull? Just turn around, McFly, and walk away. Are you deaf, McFly? Close the door and beat it.",
     publish: true,
   },
@@ -320,9 +322,8 @@ const buildReviews = () => {
   for (let i = 0; i < reviews.length; i++) {
     if (reviews[i].publish === true) {
     domString += `<div id='reviewCard' class="card col-sm-4 text-left">`;
-    domString += `<div id='reviewCardBody' class="card-body">`;
+    domString += `<div class="card-body">`;
     domString += `<h4 class="name">${reviews[i].name}</h4>`;
-    domString += `<h5 class="type">${reviews[i].type}</h5>`;
     domString += `<p class="specificReviews">${reviews[i].review}</p>`;
     domString += `</div>`;
     domString += `</div>`;
@@ -331,25 +332,6 @@ const buildReviews = () => {
   printToDom('#personalReviews', domString);
 }
 
-const createCustomerReview = (event) => {
-  let custReview = {};
-
-  if (document.querySelector('#formName').value === "" ) {
-    alert("FILL IN YOUR info");
-    return
-  }
-  custReview.name = document.querySelector('#formName').value;
-  custReview.type = document.querySelector('#formType').value;
-  custReview.review = document.querySelector('#formThoughts').value;
-  custReview.publish = true;
-  reviews.push(custReview);
-
-  document.querySelector('#formName').value="";
-  document.querySelector('#formType').value="";
-  document.querySelector('#formThoughts').value="";
-
-  buildReviews();
-};
 
 const navigateToShop = () => {
   document.getElementById("MensButton").onclick = function() {
@@ -386,9 +368,6 @@ const clickEvents = () => {
   }
   if (document.body.id === 'customerservice') {
     document.querySelector('#emailSubmit').addEventListener('click', buildClient);
-  }
-  if (document.body.id === "reviews"){
-    document.querySelector('#sweatit').addEventListener('click', createCustomerReview);
   }
 }
 
