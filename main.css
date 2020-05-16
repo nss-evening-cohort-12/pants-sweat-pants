@@ -237,7 +237,7 @@ footer li {
   border: none;
   padding: 10px;
 }
-.card-body{
+#reviewCardBody{
   background-color: #8592AC;
   border-radius: 5px;
 }
