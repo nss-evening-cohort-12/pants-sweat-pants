@@ -203,15 +203,6 @@ const buildProductCards = (sweatsArr) => {
   //   dropdownSelector[i].addEventListener('click', buildSweatpantsCart);
   // }
 
-<<<<<<< HEAD
-  const fitDropdownSelector = document.querySelectorAll('.fitDropdown');
-  
-  for (let i=0; i<fitDropdownSelector.length; i++){
-    fitDropdownSelector[i].addEventListener('click', buildSweatpantsCart);
-  }
-
-=======
->>>>>>> master
 }
 
 
