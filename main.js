@@ -133,6 +133,7 @@ const buildProductCards = (sweatsArr) => {
             domString += `
                             <div>
                               <select class="sizeDropdown" id="selectSize0">
+                                <option>size:</option>
                                 <option id="sizeButton0" value="S">S</option>
                               </select>
                             </div> `
@@ -140,6 +141,7 @@ const buildProductCards = (sweatsArr) => {
             domString += `
                             <div>
                               <select class="sizeDropdown" id="selectSize1">
+                                <option>size:</option>
                                 <option id="sizeButton1" value="S">S</option>
                                 <option id="sizeButton2" value="M">M</option>
                               </select>
@@ -148,6 +150,7 @@ const buildProductCards = (sweatsArr) => {
             domString += `
                             <div>
                               <select class="sizeDropdown" id="selectSize2">
+                                <option>size:</option>
                                 <option id="sizeButton3" value="S">S</option>
                                 <option id="sizeButton4" value="M">M</option>
                                 <option id="sizeButton5" value="L">L</option>
@@ -157,7 +160,9 @@ const buildProductCards = (sweatsArr) => {
           if (sweatsArr[i].fit === 'Loose') {
             domString += `
                             <div>
+                            
                               <select class="fitDropdown" id="selectFit0">
+                                <option>fit:</option>
                                 <option id="fitButton0" value="Loose">Loose</option>
                               </select>
                             </div>`
@@ -165,6 +170,7 @@ const buildProductCards = (sweatsArr) => {
             domString += `
                             <div>
                               <select class="fitDropdown" id="selectFit1">
+                                <option>fit:</option>
                                 <option id="fitButton1" value="Athletic">Athletic</option>
                                 <option id="fitButton2" value="Chino">Chino</option>
                               </select>
@@ -172,7 +178,8 @@ const buildProductCards = (sweatsArr) => {
           } else if (sweatsArr[i].fit.includes('Athletic','Chino','Loose')){
             domString += `
                             <div>
-                              <select class="fitDropdown" id="selectFit2" >
+                              <select class="fitDropdown" id="selectFit2">
+                                <option>fit:</option>
                                 <option id="fitButton3" value="Athletic">Athletic</option>
                                 <option id="fitButton4" value="Chino">Chino</option>
                                 <option id="fitButton5" value="Loose">Loose</option>
@@ -251,7 +258,6 @@ const buildAboutFrames = () => {
   }
   printToDom('#aboutStoryboard', domString);
 }
-
 
 let emailArr = [];
 
@@ -356,8 +362,6 @@ const createCustomerReview = (event) => {
   buildReviews();
 };
 
-
-
 const navigateToShop = () => {
   document.getElementById("MensButton").onclick = function() {
     window.location.href = "/shop.html#Male";
@@ -398,7 +402,6 @@ const clickEvents = () => {
     document.querySelector('#sweatit').addEventListener('click', createCustomerReview);
   }
 }
-
 
 const init = () => {
   if (document.body.id === "shop"){
