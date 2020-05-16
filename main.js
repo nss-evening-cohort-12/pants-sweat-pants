@@ -132,7 +132,7 @@ const buildProductCards = (sweatsArr) => {
           if (sweatsArr[i].size === 'S'){
             domString += `<div class="btn-group">
                               <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
-                            <div class="dropdown-menu">
+                            <div class="dropdown-menu" id="selectSize0">
                                 <a class="dropdown-item" id="pantSize1" href="#">S</a>
                             </div>
                           </div> `
@@ -140,7 +140,7 @@ const buildProductCards = (sweatsArr) => {
             domString += `
                           <div class="btn-group">
                               <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
-                            <div class="dropdown-menu">
+                            <div class="dropdown-menu" id="selectSize1">
                               <a class="dropdown-item" id="pantSize" href="#">S</a>
                               <a class="dropdown-item" id="pantSize" href="#">M</a>
                             </div>
@@ -149,7 +149,7 @@ const buildProductCards = (sweatsArr) => {
             domString += `
                           <div class="btn-group">
                               <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
-                            <div class="dropdown-menu">
+                            <div class="dropdown-menu" id="selectSize2">
                               <a class="dropdown-item" id="pantSize" href="#">S</a>
                               <a class="dropdown-item" id="pantSize" href="#">M</a>
                               <a class="dropdown-item" id="pantSize" href="#">L</a>
@@ -160,7 +160,7 @@ const buildProductCards = (sweatsArr) => {
             domString += `
                           <div class="btn-group ml-2">
                               <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fit</button>
-                            <div class="dropdown-menu" >
+                            <div class="dropdown-menu" id="selectFit0">
                               <a class="dropdown-item" href="#">Loose</a>
                             </div>
                           </div>`
@@ -168,7 +168,7 @@ const buildProductCards = (sweatsArr) => {
             domString += `
                           <div class="btn-group ml-2">
                               <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fit</button>
-                            <div class="dropdown-menu" >
+                            <div class="dropdown-menu" id="selectFit1">
                               <a class="dropdown-item" href="#">Athletic</a>
                               <a class="dropdown-item" href="#">Chino</a>
                             </div>
@@ -177,7 +177,7 @@ const buildProductCards = (sweatsArr) => {
             domString += `
                           <div class="btn-group ml-2">
                               <button class="btn btn-secondary btn-sm dropdown-toggle mb-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fit</button>
-                            <div class="dropdown-menu" >
+                            <div class="dropdown-menu" id="selectFit2">
                               <a class="dropdown-item" href="#">Athletic</a>
                               <a class="dropdown-item" href="#">Chino</a>
                               <a class="dropdown-item" href="#">Loose</a>
@@ -301,7 +301,7 @@ buildProductCards(tempCategory);
 }
 
 const clickEvents = () => {
-  if (document.body.id === 'shop' || document.body.id === 'homepage') {
+  if (document.body.id === 'shop') {
     document.querySelector('#Male').addEventListener('click', filterSweats);
     document.querySelector('#Female').addEventListener('click', filterSweats);
     document.querySelector('#Kids').addEventListener('click', filterSweats);
