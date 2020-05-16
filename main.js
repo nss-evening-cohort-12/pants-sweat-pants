@@ -131,58 +131,51 @@ const buildProductCards = (sweatsArr) => {
 
           if (sweatsArr[i].size === 'S'){
             domString += `
-                            <div>
+                            <div class="dropdown">
                               <select class="sizeDropdown" id="selectSize0">
-                                <option>size:</option>
-                                <option id="sizeButton0" value="S">S</option>
+                                <option class="option" id="sizeButton" value="S">S</option>
                               </select>
                             </div> `
           } else if (sweatsArr[i].size.includes('S','M') && sweatsArr[i].size.includes('L') === false){
             domString += `
-                            <div>
+                            <div class="dropdown">
                               <select class="sizeDropdown" id="selectSize1">
-                                <option>size:</option>
-                                <option id="sizeButton1" value="S">S</option>
-                                <option id="sizeButton2" value="M">M</option>
+                                <option class="option" id="sizeButton1" value="S">S</option>
+                                <option class="option" id="sizeButton2" value="M">M</option>
                               </select>
                             </div>`
           } else if (sweatsArr[i].size.includes('S','M','L')){
             domString += `
-                            <div>
+                            <div class="dropdown">
                               <select class="sizeDropdown" id="selectSize2">
-                                <option>size:</option>
-                                <option id="sizeButton3" value="S">S</option>
-                                <option id="sizeButton4" value="M">M</option>
-                                <option id="sizeButton5" value="L">L</option>
+                                <option class="option" id="sizeButton3" value="S">S</option>
+                                <option class="option" id="sizeButton4" value="M">M</option>
+                                <option class="option" id="sizeButton5" value="L">L</option>
                               </select>
                             </div>`
           };
           if (sweatsArr[i].fit === 'Loose') {
             domString += `
-                            <div>
-                            
+                            <div class="dropdown">
                               <select class="fitDropdown" id="selectFit0">
-                                <option>fit:</option>
-                                <option id="fitButton0" value="Loose">Loose</option>
+                                <option class="option" id="fitButton0" value="Loose">Loose</option>
                               </select>
                             </div>`
           } else if (sweatsArr[i].fit.includes('Athletic', 'Chino') && sweatsArr[i].fit.includes('Loose') === false){
             domString += `
-                            <div>
+                            <div class="dropdown">
                               <select class="fitDropdown" id="selectFit1">
-                                <option>fit:</option>
-                                <option id="fitButton1" value="Athletic">Athletic</option>
-                                <option id="fitButton2" value="Chino">Chino</option>
+                                <option class="option" id="fitButton1" value="Athletic">Athletic</option>
+                                <option class="option" id="fitButton2" value="Chino">Chino</option>
                               </select>
                             </div>`
           } else if (sweatsArr[i].fit.includes('Athletic','Chino','Loose')){
             domString += `
-                            <div>
-                              <select class="fitDropdown" id="selectFit2">
-                                <option>fit:</option>
-                                <option id="fitButton3" value="Athletic">Athletic</option>
-                                <option id="fitButton4" value="Chino">Chino</option>
-                                <option id="fitButton5" value="Loose">Loose</option>
+                            <div class="dropdown">
+                              <select class="fitDropdown" id="selectFit2" >
+                                <option class="option" id="fitButton3" value="Athletic">Athletic</option>
+                                <option class="option" id="fitButton4" value="Chino">Chino</option>
+                                <option class="option" id="fitButton5" value="Loose">Loose</option>
                               </select>
                             </div>`
           }
@@ -204,18 +197,21 @@ const buildProductCards = (sweatsArr) => {
     buyButton[i].addEventListener('click', buildSweatpantsCart);
   }
 
-  const sizeDropdownSelector = document.querySelectorAll('.sizeDropdown');
-  
-  for (let i=0; i<sizeDropdownSelector.length; i++){
-    sizeDropdownSelector[i].addEventListener('click', buildSweatpantsCart);
-  }
+  // const dropdownSelector = document.querySelectorAll('.dropdown');
+  // console.log(dropdownSelector)
+  // for (let i=0; i<dropdownSelector.length; i++){
+  //   dropdownSelector[i].addEventListener('click', buildSweatpantsCart);
+  // }
 
+<<<<<<< HEAD
   const fitDropdownSelector = document.querySelectorAll('.fitDropdown');
   
   for (let i=0; i<fitDropdownSelector.length; i++){
     fitDropdownSelector[i].addEventListener('click', buildSweatpantsCart);
   }
 
+=======
+>>>>>>> master
 }
 
 
@@ -239,7 +235,19 @@ const filterSweats = (event) => {
 
 
 const buildSweatpantsCart = (event) => {
-  console.log(event)
+const tempCartArr = [];
+console.log(event);
+let size= event.target.parentNode.parentNode.childNodes[5].childNodes[1].childNodes[1].value;
+let fit= event.target.parentNode.parentNode.childNodes[5].childNodes[3].childNodes[1].value;
+
+tempCartArr.push(size);
+tempCartArr.push(fit);
+
+let id = event.target.closest('.sweatsCard').id;
+
+window.alert(`You added ${sweatpants[id].name} in size ${tempCartArr[0]} in ${tempCartArr[1]} fit to your cart!`)
+
+
 }
 
 const buildAboutFrames = () => {
@@ -417,8 +425,9 @@ const init = () => {
   } else if (document.body.id === "customerservice"){
     
   };
+}
 
 clickEvents();
-}
+
 
 init();
