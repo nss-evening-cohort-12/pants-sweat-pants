@@ -144,12 +144,12 @@ header p {
   color: #2B363E; 
 }
 
-#sweatsCard img {
+.sweatsCard img {
   max-height: 300px;
   max-width: 300px;
 }
 
-#sweatsCard {
+.sweatsCard {
   max-width: 300px;
   border: 2px solid #2b363e;
 }
