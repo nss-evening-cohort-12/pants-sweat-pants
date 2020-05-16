@@ -224,8 +224,7 @@ const filterSweats = (event) => {
 
 
 const buildSweatpantsCart = (event) => {
-  let pantSize = document.getElementsByClassName('dropdown-item')
-  console.log(pantSize)
+  
 }
 
 const buildAboutFrames = () => {
