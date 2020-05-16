@@ -133,90 +133,49 @@ const buildProductCards = (sweatsArr) => {
             domString += `
                             <div class="dropdown">
                               <select class="sizeDropdown" id="selectSize0">
-<<<<<<< HEAD
                                 <option class="option" id="sizeButton" value="S">S</option>
-=======
-                                <option>size:</option>
-                                <option id="sizeButton0" value="S">S</option>
->>>>>>> master
                               </select>
                             </div> `
           } else if (sweatsArr[i].size.includes('S','M') && sweatsArr[i].size.includes('L') === false){
             domString += `
                             <div class="dropdown">
                               <select class="sizeDropdown" id="selectSize1">
-<<<<<<< HEAD
                                 <option class="option" id="sizeButton1" value="S">S</option>
                                 <option class="option" id="sizeButton2" value="M">M</option>
-=======
-                                <option>size:</option>
-                                <option id="sizeButton1" value="S">S</option>
-                                <option id="sizeButton2" value="M">M</option>
->>>>>>> master
                               </select>
                             </div>`
           } else if (sweatsArr[i].size.includes('S','M','L')){
             domString += `
                             <div class="dropdown">
                               <select class="sizeDropdown" id="selectSize2">
-<<<<<<< HEAD
                                 <option class="option" id="sizeButton3" value="S">S</option>
                                 <option class="option" id="sizeButton4" value="M">M</option>
                                 <option class="option" id="sizeButton5" value="L">L</option>
-=======
-                                <option>size:</option>
-                                <option id="sizeButton3" value="S">S</option>
-                                <option id="sizeButton4" value="M">M</option>
-                                <option id="sizeButton5" value="L">L</option>
->>>>>>> master
                               </select>
                             </div>`
           };
           if (sweatsArr[i].fit === 'Loose') {
             domString += `
-<<<<<<< HEAD
                             <div class="dropdown">
                               <select class="fitDropdown" id="selectFit0">
                                 <option class="option" id="fitButton0" value="Loose">Loose</option>
-=======
-                            <div>
-                            
-                              <select class="fitDropdown" id="selectFit0">
-                                <option>fit:</option>
-                                <option id="fitButton0" value="Loose">Loose</option>
->>>>>>> master
                               </select>
                             </div>`
           } else if (sweatsArr[i].fit.includes('Athletic', 'Chino') && sweatsArr[i].fit.includes('Loose') === false){
             domString += `
                             <div class="dropdown">
                               <select class="fitDropdown" id="selectFit1">
-<<<<<<< HEAD
                                 <option class="option" id="fitButton1" value="Athletic">Athletic</option>
                                 <option class="option" id="fitButton2" value="Chino">Chino</option>
-=======
-                                <option>fit:</option>
-                                <option id="fitButton1" value="Athletic">Athletic</option>
-                                <option id="fitButton2" value="Chino">Chino</option>
->>>>>>> master
                               </select>
                             </div>`
           } else if (sweatsArr[i].fit.includes('Athletic','Chino','Loose')){
             domString += `
-<<<<<<< HEAD
                             <div class="dropdown">
                               <select class="fitDropdown" id="selectFit2" >
                                 <option class="option" id="fitButton3" value="Athletic">Athletic</option>
                                 <option class="option" id="fitButton4" value="Chino">Chino</option>
                                 <option class="option" id="fitButton5" value="Loose">Loose</option>
-=======
-                            <div>
-                              <select class="fitDropdown" id="selectFit2">
-                                <option>fit:</option>
-                                <option id="fitButton3" value="Athletic">Athletic</option>
-                                <option id="fitButton4" value="Chino">Chino</option>
-                                <option id="fitButton5" value="Loose">Loose</option>
->>>>>>> master
                               </select>
                             </div>`
           }
