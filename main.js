@@ -328,7 +328,7 @@ const buildReviews = () => {
   for (let i = 0; i < reviews.length; i++) {
     if (reviews[i].publish === true) {
     domString += `<div id='reviewCard' class="card col-sm-4 text-left">`;
-    domString += `<div class="card-body">`;
+    domString += `<div id='reviewCardBody' class="card-body">`;
     domString += `<h4 class="name">${reviews[i].name}</h4>`;
     domString += `<p class="specificReviews">${reviews[i].review}</p>`;
     domString += `</div>`;
@@ -342,7 +342,7 @@ const createCustomerReview = (event) => {
   let custReview = {};
 
   if (document.querySelector('#formName').value === "" ) {
-    alert("FILL IN YOUR info");
+    alert("FILL IN YOUR INFO");
     return
   }
   custReview.name = document.querySelector('#formName').value;
