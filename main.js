@@ -246,16 +246,15 @@ const addToCart = () => {
                           </tr>`
   }
   cartContentString += `</tbody>
-  <thead class="thead-dark">
-  <tr>
-  <th scope="col">Total:</th>
-  <th scope="col"></th>
-  <th scope="col"></th>
-  <th scope="col">$${cartTotal}</th>
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Total:</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col">$${cartTotal}</th>
                           </tr>
-
-  </thead>
-                      </table>`
+                        </thead>
+                    </table>`
    
     printToDom('#cartContents', cartContentString);
     printToDom('#totalCostContainer', `${cartTotal}.00`)
