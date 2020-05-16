@@ -209,8 +209,6 @@ const buildProductCards = (sweatsArr) => {
     fitDropdownSelector[i].addEventListener('click', buildSweatpantsCart);
   }
 
-  
-  g
 }
 
 
