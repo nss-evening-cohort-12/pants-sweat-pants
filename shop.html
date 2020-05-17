@@ -16,16 +16,46 @@
     <ul id="navLinks">
       <li><a href="shop.html" id="navToShop">Shop</a></li>
       <li><a href="about.html" id="navToAbout">About</a></li>
-      <li><a href="reviews.html" id="navToReviews">Reviews</a></li>
-      <span class="navbar-text navbar-nav ml-auto" id="totalCostContainer">$0.00</span>
+      <li><a href="reviews.html" id="navToReviews">Reviews</a></li>     
+      <!-- Button trigger shopping cart: -->
+      <div class="ml-auto">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cartModal">
+        View cart
+      </button>
+      <span class="navbar-text navbar-nav" id="totalCostContainer">
+        $0.00
+      </span>
+      </div>
     </ul>
   </nav>
+
 </header>
 <body id="shop">
 <div id="shopPage" class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">Shop</h1>
     <p class="lead">Shop our Quarantine Collection™. Never leave your house agian.</p>
+  </div>
+</div>
+
+<div id="cartPopUp">
+  <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="shoppingCartModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="shoppingCartModal">Shopping Cart</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="cartContents">
+          Your cart is empty!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -42,7 +72,6 @@
 
 <footer>
   <div class="nav-row" id="footerLinks">
-    <!-- <div class="col-1"></div> -->
     <div class="nav-col">
         <ul>
             <li><a href="customerservice.html#shipping">Shipping</a></li>
@@ -64,8 +93,8 @@
             <li><img src="images/pinterest.png" alt="pinterest icon" class="social-icon"> <a href="https://www.pinterest.com/search/pins/?q=sweatpants" target="_blank">Pinterest</a></li>
         </ul>
     </div>
-    <!-- <div class="col-1"></div> -->
   </div>
+  
 </footer>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

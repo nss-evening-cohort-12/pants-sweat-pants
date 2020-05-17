@@ -95,6 +95,9 @@ const aboutFrames = [
 }
 ];
 
+let shoppingCart = [];
+let cartTotal = 0;
+
 const printToDom = (selector, textToPrint) => {
   const selectedDiv = document.querySelector(selector);
   selectedDiv.innerHTML = textToPrint;
@@ -132,14 +135,16 @@ const buildProductCards = (sweatsArr) => {
           if (sweatsArr[i].size === 'S'){
             domString += `
                             <div class="dropdown">
-                              <select class="sizeDropdown" id="selectSize0">
+                              <select class="sizeDropdown" id="selectSize${i}">
+                                <option>size ⌄</option>
                                 <option class="option" id="sizeButton" value="S">S</option>
                               </select>
                             </div> `
           } else if (sweatsArr[i].size.includes('S','M') && sweatsArr[i].size.includes('L') === false){
             domString += `
                             <div class="dropdown">
-                              <select class="sizeDropdown" id="selectSize1">
+                              <select class="sizeDropdown" id="selectSize${i}">
+                                <option>size ⌄</option>
                                 <option class="option" id="sizeButton1" value="S">S</option>
                                 <option class="option" id="sizeButton2" value="M">M</option>
                               </select>
@@ -147,7 +152,8 @@ const buildProductCards = (sweatsArr) => {
           } else if (sweatsArr[i].size.includes('S','M','L')){
             domString += `
                             <div class="dropdown">
-                              <select class="sizeDropdown" id="selectSize2">
+                              <select class="sizeDropdown" id="selectSize${i}">
+                                <option>size ⌄</option>
                                 <option class="option" id="sizeButton3" value="S">S</option>
                                 <option class="option" id="sizeButton4" value="M">M</option>
                                 <option class="option" id="sizeButton5" value="L">L</option>
@@ -157,14 +163,16 @@ const buildProductCards = (sweatsArr) => {
           if (sweatsArr[i].fit === 'Loose') {
             domString += `
                             <div class="dropdown">
-                              <select class="fitDropdown" id="selectFit0">
+                              <select class="fitDropdown" id="selectFit${i}">
+                                <option>fit ⌄</option>
                                 <option class="option" id="fitButton0" value="Loose">Loose</option>
                               </select>
                             </div>`
           } else if (sweatsArr[i].fit.includes('Athletic', 'Chino') && sweatsArr[i].fit.includes('Loose') === false){
             domString += `
                             <div class="dropdown">
-                              <select class="fitDropdown" id="selectFit1">
+                              <select class="fitDropdown" id="selectFit${i}">
+                                <option>fit ⌄</option>
                                 <option class="option" id="fitButton1" value="Athletic">Athletic</option>
                                 <option class="option" id="fitButton2" value="Chino">Chino</option>
                               </select>
@@ -172,7 +180,8 @@ const buildProductCards = (sweatsArr) => {
           } else if (sweatsArr[i].fit.includes('Athletic','Chino','Loose')){
             domString += `
                             <div class="dropdown">
-                              <select class="fitDropdown" id="selectFit2" >
+                              <select class="fitDropdown" id="selectFit${i}" >
+                                <option>fit ⌄</option>
                                 <option class="option" id="fitButton3" value="Athletic">Athletic</option>
                                 <option class="option" id="fitButton4" value="Chino">Chino</option>
                                 <option class="option" id="fitButton5" value="Loose">Loose</option>
@@ -205,7 +214,6 @@ const buildProductCards = (sweatsArr) => {
 
 }
 
-
 const filterSweats = (event) => {
   let buttonId = event.target.id;
   const tempSweatsArr = [];
@@ -224,21 +232,69 @@ const filterSweats = (event) => {
   buildProductCards(tempSweatsArr);
 }
 
+const addToCart = () => {
+  let cartContentString = `<table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Item</th>
+                                <th scope="col">Fit</th>
+                                <th scope="col">Size</th>
+                                <th scope="col">Price</th>
+                              </tr>
+                            </thead>
+                            <tbody>`;
+  for (let i = 0; i <shoppingCart.length; i++) {
+    cartContentString += `<tr>
+                            <td>${shoppingCart[i].type}</td>
+                            <td>${shoppingCart[i].fit}</td>
+                            <td>${shoppingCart[i].size}</td>
+                            <td>$${shoppingCart[i].price}</td>
+                          </tr>`
+  }
+  cartContentString += `</tbody>
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Total:</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col">$${cartTotal}</th>
+                          </tr>
+                        </thead>
+                    </table>`
+   
+    printToDom('#cartContents', cartContentString);
+    printToDom('#totalCostContainer', `${cartTotal}.00`)
+}
 
 const buildSweatpantsCart = (event) => {
-const tempCartArr = [];
-console.log(event);
-let size= event.target.parentNode.parentNode.childNodes[5].childNodes[1].childNodes[1].value;
-let fit= event.target.parentNode.parentNode.childNodes[5].childNodes[3].childNodes[1].value;
+  const tempCartArr = [];
+  let size= event.target.parentNode.parentNode.childNodes[5].childNodes[1].childNodes[1].value;
+  let fit= event.target.parentNode.parentNode.childNodes[5].childNodes[3].childNodes[1].value;
+  if (size === 'size ⌄' || fit === 'fit ⌄') {
+    return;
+  }
+  tempCartArr.push(size);
+  tempCartArr.push(fit);
+  let id = event.target.closest('.sweatsCard').id;
+  window.alert(`You added ${sweatpants[id].name} in size ${tempCartArr[0]} in ${tempCartArr[1]} fit to your cart!`)
 
-tempCartArr.push(size);
-tempCartArr.push(fit);
-
-let id = event.target.closest('.sweatsCard').id;
-
-window.alert(`You added ${sweatpants[id].name} in size ${tempCartArr[0]} in ${tempCartArr[1]} fit to your cart!`)
-
-
+  // add to cart 
+  let objectToAdd = {};
+  objectToAdd["type"] = sweatpants[id].name;
+  objectToAdd["size"] = tempCartArr[0];
+  objectToAdd["fit"] = tempCartArr[1];
+  objectToAdd["price"] = sweatpants[id].price;
+  shoppingCart.push(objectToAdd);
+  cartTotal += sweatpants[id].price;
+  addToCart();
+  
+  // reset dropdown menus
+  const sizeMenuId = `selectSize${Number(id)}`;
+  const fitMenuId = `selectFit${Number(id)}`;
+  const dropdownSize = document.getElementById(sizeMenuId);
+  const dropdownFit = document.getElementById(fitMenuId);
+  dropdownSize.selectedIndex = 0;
+  dropdownFit.selectedIndex = 0;
 }
 
 const buildAboutFrames = () => {
@@ -420,5 +476,5 @@ const init = () => {
 
 clickEvents();
 
-
 init();
+
