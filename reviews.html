@@ -16,8 +16,16 @@
     <ul id="navLinks">
       <li><a href="shop.html" id="navToShop">Shop</a></li>
       <li><a href="about.html" id="navToAbout">About</a></li>
-      <li><a href="reviews.html" id="navToReviews">Reviews</a></li>
-      <span class="navbar-text navbar-nav ml-auto" id="totalCostContainer">$0.00</span>
+      <li><a href="reviews.html" id="navToReviews">Reviews</a></li>     
+      <!-- Button trigger shopping cart: -->
+      <div class="ml-auto">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cartModal">
+        View cart
+      </button>
+      <span class="navbar-text navbar-nav" id="totalCostContainer">
+        $0.00
+      </span>
+      </div>
     </ul>
   </nav>
 </header>
@@ -83,6 +91,28 @@
       <button id="sweatit"type="button" class="btn btn-outline-secondary">Sweat it</button>
     </form>
   </div>
+
+  <div id="cartPopUp">
+    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="shoppingCartModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="shoppingCartModal">Shopping Cart</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="cartContents">
+            Your cart is empty!
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <footer>
   <div class="nav-row" id="footerLinks">
     <div class="nav-col">

@@ -95,8 +95,29 @@ const aboutFrames = [
 }
 ];
 
-let shoppingCart = [];
-let cartTotal = 0;
+//retrieve local storage
+const retrieveCart = () => {
+  if (localStorage.getItem('cart')) {
+      const cart = JSON.parse(window.localStorage.getItem('cart'));
+      return cart;
+  } else {
+      const cart = [];
+      return cart;
+}
+}
+const retrieveTotal = () => {
+  if (localStorage.getItem('total')) {
+        const totalString = window.localStorage.getItem('total');
+        const total = (Number(totalString));
+        return total;
+      } else {
+        const total = 0;
+        return total;
+  }
+}
+
+let shoppingCart = retrieveCart();
+let cartTotal = retrieveTotal();
 
 const printToDom = (selector, textToPrint) => {
   const selectedDiv = document.querySelector(selector);
@@ -205,13 +226,6 @@ const buildProductCards = (sweatsArr) => {
   for (let i=0; i<buyButton.length; i++){
     buyButton[i].addEventListener('click', buildSweatpantsCart);
   }
-
-  // const dropdownSelector = document.querySelectorAll('.dropdown');
-  // console.log(dropdownSelector)
-  // for (let i=0; i<dropdownSelector.length; i++){
-  //   dropdownSelector[i].addEventListener('click', buildSweatpantsCart);
-  // }
-
 }
 
 const filterSweats = (event) => {
@@ -232,39 +246,7 @@ const filterSweats = (event) => {
   buildProductCards(tempSweatsArr);
 }
 
-const addToCart = () => {
-  let cartContentString = `<table class="table">
-                            <thead>
-                              <tr>
-                                <th scope="col">Item</th>
-                                <th scope="col">Fit</th>
-                                <th scope="col">Size</th>
-                                <th scope="col">Price</th>
-                              </tr>
-                            </thead>
-                            <tbody>`;
-  for (let i = 0; i <shoppingCart.length; i++) {
-    cartContentString += `<tr>
-                            <td>${shoppingCart[i].type}</td>
-                            <td>${shoppingCart[i].fit}</td>
-                            <td>${shoppingCart[i].size}</td>
-                            <td>$${shoppingCart[i].price}</td>
-                          </tr>`
-  }
-  cartContentString += `</tbody>
-                        <thead class="thead-dark">
-                          <tr>
-                            <th scope="col">Total:</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                            <th scope="col">$${cartTotal}</th>
-                          </tr>
-                        </thead>
-                    </table>`
-   
-    printToDom('#cartContents', cartContentString);
-    printToDom('#totalCostContainer', `${cartTotal}.00`)
-}
+
 
 const buildSweatpantsCart = (event) => {
   const tempCartArr = [];
@@ -458,10 +440,53 @@ const clickEvents = () => {
   }
 }
 
+const addToCart = () => {
+  let cartContentString = `<table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Item</th>
+                                <th scope="col">Fit</th>
+                                <th scope="col">Size</th>
+                                <th scope="col">Price</th>
+                              </tr>
+                            </thead>
+                            <tbody>`;
+  for (let i = 0; i <shoppingCart.length; i++) {
+    cartContentString += `<tr>
+                            <td>${shoppingCart[i].type}</td>
+                            <td>${shoppingCart[i].fit}</td>
+                            <td>${shoppingCart[i].size}</td>
+                            <td>$${shoppingCart[i].price}</td>
+                          </tr>`
+  }
+  cartContentString += `</tbody>
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Total:</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col">$${cartTotal}</th>
+                          </tr>
+                        </thead>
+                    </table>`
+   
+    printToDom('#cartContents', cartContentString);
+    printToDom('#totalCostContainer', `${cartTotal}.00`)
+
+    //localstorage
+    window.localStorage.setItem('cart', JSON.stringify(shoppingCart));
+    window.localStorage.setItem('total', cartTotal);
+
+}
+
+ const printCartTotal = () => {
+  printToDom('#totalCostContainer', `${cartTotal}.00`)
+ }
+
 const init = () => {
   if (document.body.id === "shop"){
     buildProductCards(sweatpants);
-    filterOnLoad()
+    filterOnLoad();
   } else if (document.body.id === "about") {
     buildAboutFrames();
   } else if (document.body.id === "homepage") {
@@ -469,9 +494,11 @@ const init = () => {
     navigateToShop();
   } else if (document.body.id === "reviews"){
     buildReviews();
-  } else if (document.body.id === "customerservice"){
-    
-  };
+  } 
+  if (shoppingCart != []) {
+    addToCart();
+  }
+  printCartTotal();
 }
 
 clickEvents();
