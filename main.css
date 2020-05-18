@@ -116,6 +116,11 @@ header p {
   border: 1px solid #8592AC;
 }
 
+.viewCart {
+  background-color: #8592AC;
+  border: 1px solid #8592AC;
+}
+
 .customerContainer {
   margin: 40px auto 0;
   max-width: 800px;
@@ -126,9 +131,9 @@ header p {
   color: #2B363E;
 }
 
-.customerContainer p {
+ .customerContainer p {
   color: #2B363E;
-}
+} 
 
 #productCardContainer {
   display: flex;
