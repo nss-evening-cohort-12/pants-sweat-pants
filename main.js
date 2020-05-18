@@ -1,3 +1,4 @@
+//Shop, About, Reviews: Create data arrays
 const categoryArr = [
   {
     section: 'Mens',
@@ -15,7 +16,6 @@ const categoryArr = [
     description: 'Fashion is about dressing according to whats fashionable. Style is more about being yourself. I am not interested in shock tactics. I just want to make beautiful clothes. I am not interested in shock tactics.'
   }
 ]
-
 const sweatpants = [
   {
     id: 0,
@@ -78,7 +78,6 @@ const sweatpants = [
     fit: ['Athletic', 'Chino']
   },
 ]
-
 const aboutFrames = [
   {
     frameImg: "images/about_storyboard1.png",
@@ -94,8 +93,46 @@ const aboutFrames = [
     frameText: "Sweaty's proudly donates 5% of our profits every leap year to local charities and organizations that help those less fortunate than our CEO's."
 }
 ];
+const reviews = [
+  {
+    name: "Jimmy Dean",
+    type: "Cozy Fleece",
+    review: "The best sweatpants to enjoy sausage!",
+    publish: true,
+  },
+  {
+    name: "Hodor",
+    type: "Nicholas Cage Face",
+    review: "Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor",
+    publish: true,
+  },
+  {
+    name: "Bill Dauterive",
+    type: "Cotton Jogger",
+    review: "I'm baby authentic PBR&B messenger bag neutra, put a bird on it keytar narwhal try-hard kitsch pitchfork chambray cardigan tumblr. Umami subway tile man braid copper mug tumeric readymade try-hard shoreditch tattooed kinfolk VHS williamsburg DIY keytar irony. YOLO truffaut seitan retro marfa shoreditch migas raw denim wolf actually helvetica.",
+    publish: true,
+  },
+  {
+    name: "Lori Smith",
+    type: "Boerum Jogger",
+    review: "Meh man braid franzen, eu austin irure in. Direct trade raclette poutine bushwick retro in. Fingerstache adaptogen activated charcoal velit nulla, pug aliqua direct trade. Meggings in raw denim, reprehenderit nulla hella ex.",
+    publish: false,
+  },
+  {
+    name: "Craig Bunton",
+    type: "Non Elastic",
+    review: "8-bit plaid beard tote bag blog blue bottle. Kitsch brunch kogi knausgaard chillwave art party woke leggings yuccie lumbersexual, vexillologist poutine. Copper mug narwhal aesthetic, occupy lo-fi XOXO gentrify migas vaporware tousled selvage adaptogen pour-over. Next level organic single-origin coffee pour-over.",
+    publish: true,
+  },
+  {
+    name: "Carol Farrell",
+    type: "Cozy Fleece",
+    review: "What's a rerun? You wanna a Pepsi, pall, you're gonna pay for it. Ah. There's that word again, heavy. Why are things so heavy in the future. Is there a problem with the Earth's gravitational pull? Just turn around, McFly, and walk away. Are you deaf, McFly? Close the door and beat it.",
+    publish: true,
+  },
+];
 
-//retrieve local storage
+//Shop: Retrieve cart & total from local storage or Create empty variables
 const retrieveCart = () => {
   if (localStorage.getItem('cart')) {
       const cart = JSON.parse(window.localStorage.getItem('cart'));
@@ -115,15 +152,16 @@ const retrieveTotal = () => {
         return total;
   }
 }
-
 let shoppingCart = retrieveCart();
 let cartTotal = retrieveTotal();
 
+//General: Print to DOM
 const printToDom = (selector, textToPrint) => {
   const selectedDiv = document.querySelector(selector);
   selectedDiv.innerHTML = textToPrint;
 }
 
+//Homepage: Build cards for Category section
 const buildCategoryCards = (arr) => {
   let domString = '';
   for(let i = 0; i < categoryArr.length; i++) {
@@ -143,6 +181,7 @@ const buildCategoryCards = (arr) => {
   printToDom('#categories', domString)
 }
 
+//Shop: Build sweatpants product cards
 const buildProductCards = (sweatsArr) => {
   let domString = '';
   for (let i = 0; i < sweatsArr.length; i++) {
@@ -213,7 +252,7 @@ const buildProductCards = (sweatsArr) => {
                           </div>
                           <div class="card-footer row">
                             <p class="card-text text-center mb-0 p-0 col-6"><small class="text">$${sweatsArr[i].price}</small></p>
-                            <button type="button" class="btn btn-primary col-6 buyButton">BUY</button>
+                            <button type="button" class="btn btn-primary col-6 buyButton">Add to Cart</button>
                           </div>
                         </div>
                       </div>`
@@ -228,6 +267,7 @@ const buildProductCards = (sweatsArr) => {
   }
 }
 
+//Shop: Filter product cards from mouse click
 const filterSweats = (event) => {
   let buttonId = event.target.id;
   const tempSweatsArr = [];
@@ -246,8 +286,7 @@ const filterSweats = (event) => {
   buildProductCards(tempSweatsArr);
 }
 
-
-
+//Shop: Create temp array from customer's selection and Push to cart
 const buildSweatpantsCart = (event) => {
   const tempCartArr = [];
   let size= event.target.parentNode.parentNode.childNodes[5].childNodes[1].childNodes[1].value;
@@ -279,6 +318,7 @@ const buildSweatpantsCart = (event) => {
   dropdownFit.selectedIndex = 0;
 }
 
+//About: Build storyboard frames
 const buildAboutFrames = () => {
   let domString = '';
   for (let i = 0; i < aboutFrames.length; i++) {
@@ -296,8 +336,8 @@ const buildAboutFrames = () => {
   printToDom('#aboutStoryboard', domString);
 }
 
+//Customer Service: Add functionality to Email form
 let emailArr = [];
-
 const buildClient = () => {
   let client = {};
   client.firstName = document.querySelector('#inputFirstName').value;
@@ -308,7 +348,6 @@ const buildClient = () => {
   emailArr.push(client);
   buildEmailResponse(emailArr);
 }
-
 const buildEmailResponse = (arr) => {
   let domString = '';
 
@@ -323,46 +362,7 @@ const buildEmailResponse = (arr) => {
   printToDom('#email', domString);
 }
 
-/*REVIEWS CODE */
-const reviews = [
-  {
-    name: "Jimmy Dean",
-    type: "Cozy Fleece",
-    review: "The best sweatpants to enjoy sausage!",
-    publish: true,
-  },
-  {
-    name: "Hodor",
-    type: "Nicholas Cage Face",
-    review: "Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor Hodor",
-    publish: true,
-  },
-  {
-    name: "Bill Dauterive",
-    type: "Cotton Jogger",
-    review: "I'm baby authentic PBR&B messenger bag neutra, put a bird on it keytar narwhal try-hard kitsch pitchfork chambray cardigan tumblr. Umami subway tile man braid copper mug tumeric readymade try-hard shoreditch tattooed kinfolk VHS williamsburg DIY keytar irony. YOLO truffaut seitan retro marfa shoreditch migas raw denim wolf actually helvetica.",
-    publish: true,
-  },
-  {
-    name: "Lori Smith",
-    type: "Boerum Jogger",
-    review: "Meh man braid franzen, eu austin irure in. Direct trade raclette poutine bushwick retro in. Fingerstache adaptogen activated charcoal velit nulla, pug aliqua direct trade. Meggings in raw denim, reprehenderit nulla hella ex.",
-    publish: false,
-  },
-  {
-    name: "Craig Bunton",
-    type: "Non Elastic",
-    review: "8-bit plaid beard tote bag blog blue bottle. Kitsch brunch kogi knausgaard chillwave art party woke leggings yuccie lumbersexual, vexillologist poutine. Copper mug narwhal aesthetic, occupy lo-fi XOXO gentrify migas vaporware tousled selvage adaptogen pour-over. Next level organic single-origin coffee pour-over.",
-    publish: true,
-  },
-  {
-    name: "Carol Farrell",
-    type: "Cozy Fleece",
-    review: "What's a rerun? You wanna a Pepsi, pall, you're gonna pay for it. Ah. There's that word again, heavy. Why are things so heavy in the future. Is there a problem with the Earth's gravitational pull? Just turn around, McFly, and walk away. Are you deaf, McFly? Close the door and beat it.",
-    publish: true,
-  },
-];
-
+//Reviews: Build Reviews cards
 const buildReviews = () => {
   let domString = '';
 
@@ -379,6 +379,7 @@ const buildReviews = () => {
   printToDom('#personalReviews', domString);
 }
 
+//Reviews: Add new review from customer input
 const createCustomerReview = (event) => {
   let custReview = {};
 
@@ -399,6 +400,7 @@ const createCustomerReview = (event) => {
   buildReviews();
 };
 
+//Home: Navigate to Shop Page and adds hash to URL based on category clicked
 const navigateToShop = () => {
   document.getElementById("MensButton").onclick = function() {
     window.location.href = "/shop.html#Male";
@@ -411,11 +413,11 @@ document.getElementById("KidsButton").onclick = function() {
 };
 }
 
+//Shop: Filter Product cards based on category clicked on Homepage
 const filterOnLoad = () => {
   let tempCategory = [];
   if(window.location.hash) {
     var hash = window.location.hash.substring(1); 
-    // console.log(hash);
     for (let i = 0; i < sweatpants.length; i++){
       if (sweatpants[i].gender === hash){
         tempCategory.push(sweatpants[i])
@@ -425,21 +427,7 @@ buildProductCards(tempCategory);
 }
 }
 
-const clickEvents = () => {
-  if (document.body.id === 'shop') {
-    document.querySelector('#Male').addEventListener('click', filterSweats);
-    document.querySelector('#Female').addEventListener('click', filterSweats);
-    document.querySelector('#Kids').addEventListener('click', filterSweats);
-    document.querySelector('#All').addEventListener('click', filterSweats);
-  }
-  if (document.body.id === 'customerservice') {
-    document.querySelector('#emailSubmit').addEventListener('click', buildClient);
-  }
-  if (document.body.id === "reviews"){
-    document.querySelector('#sweatit').addEventListener('click', createCustomerReview);
-  }
-}
-
+//Shop: Build cart display and Store user's cart on local storage
 const addToCart = () => {
   let cartContentString = `<table class="table">
                             <thead>
@@ -471,7 +459,7 @@ const addToCart = () => {
                     </table>`
    
     printToDom('#cartContents', cartContentString);
-    printToDom('#totalCostContainer', `${cartTotal}.00`)
+    printToDom('#totalCostContainer', `$${cartTotal}.00`)
 
     //localstorage
     window.localStorage.setItem('cart', JSON.stringify(shoppingCart));
@@ -479,10 +467,53 @@ const addToCart = () => {
 
 }
 
+//Navbar: Build empty shopping cart 
+const buildEmptyCart = () => {
+  let cartContentString =  `Your cart is empty!`
+   
+    printToDom('#cartContents', cartContentString);
+    printToDom('#totalCostContainer', `$${cartTotal}.00`)
+}
+
+//Navbar: Empty user's shopping cart
+const emptyCart = () => {
+  shoppingCart = [];
+  cartTotal = 0;
+  window.localStorage.clear()
+  buildEmptyCart();
+}
+
+//Navbar: Print user's current cart total in Navbar
  const printCartTotal = () => {
-  printToDom('#totalCostContainer', `${cartTotal}.00`)
+  printToDom('#totalCostContainer', `$${cartTotal}.00`)
  }
 
+//General: Click events for each page
+ const clickEvents = () => {
+  if (document.body.id === 'shop') {
+    document.querySelector('#Male').addEventListener('click', filterSweats);
+    document.querySelector('#emptyShoppingCart').addEventListener('click', emptyCart);
+    document.querySelector('#Female').addEventListener('click', filterSweats);
+    document.querySelector('#Kids').addEventListener('click', filterSweats);
+    document.querySelector('#All').addEventListener('click', filterSweats);
+  }
+  if (document.body.id === 'customerservice') {
+    document.querySelector('#emptyShoppingCart').addEventListener('click', emptyCart);
+    document.querySelector('#emailSubmit').addEventListener('click', buildClient);
+  }
+  if (document.body.id === "reviews"){
+    document.querySelector('#emptyShoppingCart').addEventListener('click', emptyCart);
+    document.querySelector('#sweatit').addEventListener('click', createCustomerReview);
+  }
+  if (document.body.id === "about") {
+    document.querySelector('#emptyShoppingCart').addEventListener('click', emptyCart);
+  }
+  if (document.body.id === "homepage") {
+    document.querySelector('#emptyShoppingCart').addEventListener('click', emptyCart);
+}
+}
+
+//General: Init function
 const init = () => {
   if (document.body.id === "shop"){
     buildProductCards(sweatpants);
@@ -502,6 +533,4 @@ const init = () => {
 }
 
 clickEvents();
-
 init();
-
