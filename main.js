@@ -124,6 +124,7 @@ const printToDom = (selector, textToPrint) => {
   selectedDiv.innerHTML = textToPrint;
 }
 
+//Build Cards for Category Section on Homepage
 const buildCategoryCards = (arr) => {
   let domString = '';
   for(let i = 0; i < categoryArr.length; i++) {
@@ -296,6 +297,7 @@ const buildAboutFrames = () => {
   printToDom('#aboutStoryboard', domString);
 }
 
+//Adds Functionality to Email Form on Customer Service Page
 let emailArr = [];
 
 const buildClient = () => {
@@ -399,6 +401,7 @@ const createCustomerReview = (event) => {
   buildReviews();
 };
 
+//Navigates to Shop Page and Adds Hash to URL Based on Category Clicked
 const navigateToShop = () => {
   document.getElementById("MensButton").onclick = function() {
     window.location.href = "/shop.html#Male";
@@ -411,6 +414,7 @@ document.getElementById("KidsButton").onclick = function() {
 };
 }
 
+//Filters Shop Page Based on Category Clicked on Homepage
 const filterOnLoad = () => {
   let tempCategory = [];
   if(window.location.hash) {
@@ -423,21 +427,6 @@ const filterOnLoad = () => {
 };
 buildProductCards(tempCategory);
 }
-}
-
-const clickEvents = () => {
-  if (document.body.id === 'shop') {
-    document.querySelector('#Male').addEventListener('click', filterSweats);
-    document.querySelector('#Female').addEventListener('click', filterSweats);
-    document.querySelector('#Kids').addEventListener('click', filterSweats);
-    document.querySelector('#All').addEventListener('click', filterSweats);
-  }
-  if (document.body.id === 'customerservice') {
-    document.querySelector('#emailSubmit').addEventListener('click', buildClient);
-  }
-  if (document.body.id === "reviews"){
-    document.querySelector('#sweatit').addEventListener('click', createCustomerReview);
-  }
 }
 
 const addToCart = () => {
@@ -471,17 +460,55 @@ const addToCart = () => {
                     </table>`
    
     printToDom('#cartContents', cartContentString);
-    printToDom('#totalCostContainer', `${cartTotal}.00`)
+    printToDom('#totalCostContainer', `$${cartTotal}.00`)
 
     //localstorage
     window.localStorage.setItem('cart', JSON.stringify(shoppingCart));
     window.localStorage.setItem('total', cartTotal);
 
 }
+const buildEmptyCart = () => {
+  let cartContentString =  `Your cart is empty!`
+   
+    printToDom('#cartContents', cartContentString);
+    printToDom('#totalCostContainer', `$${cartTotal}.00`)
+}
+
+// Empty Cart
+const emptyCart = () => {
+  shoppingCart = [];
+  cartTotal = 0;
+  window.localStorage.clear()
+  buildEmptyCart();
+}
 
  const printCartTotal = () => {
-  printToDom('#totalCostContainer', `${cartTotal}.00`)
+  printToDom('#totalCostContainer', `$${cartTotal}.00`)
  }
+
+ const clickEvents = () => {
+  if (document.body.id === 'shop') {
+    document.querySelector('#Male').addEventListener('click', filterSweats);
+    document.querySelector('#emptyShoppingCart').addEventListener('click', emptyCart);
+    document.querySelector('#Female').addEventListener('click', filterSweats);
+    document.querySelector('#Kids').addEventListener('click', filterSweats);
+    document.querySelector('#All').addEventListener('click', filterSweats);
+  }
+  if (document.body.id === 'customerservice') {
+    document.querySelector('#emptyShoppingCart').addEventListener('click', emptyCart);
+    document.querySelector('#emailSubmit').addEventListener('click', buildClient);
+  }
+  if (document.body.id === "reviews"){
+    document.querySelector('#emptyShoppingCart').addEventListener('click', emptyCart);
+    document.querySelector('#sweatit').addEventListener('click', createCustomerReview);
+  }
+  if (document.body.id === "about") {
+    document.querySelector('#emptyShoppingCart').addEventListener('click', emptyCart);
+  }
+  if (document.body.id === "homepage") {
+    document.querySelector('#emptyShoppingCart').addEventListener('click', emptyCart);
+}
+}
 
 const init = () => {
   if (document.body.id === "shop"){
@@ -502,6 +529,4 @@ const init = () => {
 }
 
 clickEvents();
-
 init();
-
